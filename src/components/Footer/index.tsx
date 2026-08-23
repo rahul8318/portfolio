@@ -58,20 +58,20 @@ function Footer() {
             >
               Links
             </p>
-            <div className="space-y-4">
-              {footerLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-3 text-sm text-text-secondary hover:text-text-primary transition-colors min-h-[36px] tracking-wide"
-                >
-                  <link.icon size={18} className="group-hover:text-accent transition-colors" />
-                  {link.label}
-                </a>
-              ))}
-            </div>
+              <div className="space-y-4">
+                {footerLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-3 text-sm text-text-secondary hover:text-text-primary transition-colors min-h-[36px] tracking-wide focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded-sm"
+                  >
+                    <link.icon size={18} className="group-hover:text-accent transition-colors" />
+                    {link.label}
+                  </a>
+                ))}
+              </div>
           </div>
 
           <div className="md:col-span-3">
@@ -82,15 +82,15 @@ function Footer() {
               Projects
             </p>
             <div className="space-y-4">
-              <a href="/#work" className="group flex items-center gap-3 text-sm text-text-secondary hover:text-text-primary transition-colors min-h-[36px] tracking-wide">
+              <a href="/#work" className="group flex items-center gap-3 text-sm text-text-secondary hover:text-text-primary transition-colors min-h-[36px] tracking-wide focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-text-muted group-hover:bg-accent group-hover:scale-150 transition-all" />
                 PrepForge
               </a>
-              <a href="/#work" className="group flex items-center gap-3 text-sm text-text-secondary hover:text-text-primary transition-colors min-h-[36px] tracking-wide">
+              <a href="/#work" className="group flex items-center gap-3 text-sm text-text-secondary hover:text-text-primary transition-colors min-h-[36px] tracking-wide focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-text-muted group-hover:bg-accent group-hover:scale-150 transition-all" />
                 Wanderlust
               </a>
-              <a href="/#work" className="group flex items-center gap-3 text-sm text-text-secondary hover:text-text-primary transition-colors min-h-[36px] tracking-wide">
+              <a href="/#work" className="group flex items-center gap-3 text-sm text-text-secondary hover:text-text-primary transition-colors min-h-[36px] tracking-wide focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-text-muted group-hover:bg-accent group-hover:scale-150 transition-all" />
                 Zerodha Clone
               </a>

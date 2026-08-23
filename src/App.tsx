@@ -38,7 +38,7 @@ function App() {
         </Routes>
       </main>
       {isMobile && (
-        <nav className="fixed bottom-0 left-0 right-0 z-50 glass border-t border-border px-6 py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))]">
+        <nav className="fixed bottom-0 left-0 right-0 z-50 glass border-t border-border px-5 py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))]" aria-label="Mobile navigation">
           <div className="flex items-center justify-around">
             {[
               { label: "Home", href: "/", emoji: "🏠" },
@@ -49,10 +49,11 @@ function App() {
               <a
                 key={item.label}
                 href={item.href}
-                className="flex flex-col items-center gap-1 text-text-muted hover:text-text-primary transition-colors min-h-[44px] justify-center px-2"
+                className="flex flex-col items-center gap-1 text-text-muted hover:text-text-primary transition-colors min-h-[44px] justify-center px-3 py-1 rounded-full focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+                aria-label={item.label}
               >
-                <span className="text-base">{item.emoji}</span>
-                <span className="text-[10px] font-medium tracking-wider uppercase">{item.label}</span>
+                <span className="text-base leading-none">{item.emoji}</span>
+                <span className="text-[10px] font-medium tracking-[0.15em] uppercase">{item.label}</span>
               </a>
             ))}
           </div>

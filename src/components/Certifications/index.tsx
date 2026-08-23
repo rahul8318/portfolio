@@ -33,11 +33,11 @@ function Certifications() {
         </h2>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
         {certifications.map((cert, idx) => (
           <motion.div
             key={cert.id}
-            className="glass rounded-2xl md:rounded-3xl p-6 md:p-8 border-border hover:border-accent/30 transition-all duration-500 min-h-[120px] md:min-h-[140px] flex items-center"
+            className="group glass rounded-2xl md:rounded-3xl p-6 md:p-8 border-border hover:border-accent/30 transition-all duration-500 min-h-[120px] md:min-h-[140px] flex items-center"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: idx * 0.1 }}

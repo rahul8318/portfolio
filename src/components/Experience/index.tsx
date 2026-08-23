@@ -64,9 +64,9 @@ function Experience() {
                   >
                     {exp.role}
                   </h3>
-                  <p className="text-accent mt-1 text-sm md:text-base">{exp.company}</p>
+                  <p className="text-accent mt-1 text-sm md:text-base tracking-wide">{exp.company}</p>
                   {exp.location && (
-                    <p className="text-text-muted text-xs md:text-sm mt-0.5">{exp.location}</p>
+                    <p className="text-text-muted text-xs md:text-sm mt-0.5 tracking-wide">{exp.location}</p>
                   )}
                 </div>
               </div>

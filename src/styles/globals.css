@@ -45,7 +45,7 @@
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --section-padding: clamp(64px, 10vw, 160px);
-  --container-max: 1400px;
+  --container-max: 1280px;
   --container-padding: clamp(20px, 4vw, 80px);
   --glass-bg: rgba(30, 41, 59, 0.7);
   --glass-border: rgba(255, 255, 255, 0.1);

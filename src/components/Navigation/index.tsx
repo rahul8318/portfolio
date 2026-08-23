@@ -28,11 +28,12 @@ function Navigation({ onMenuToggle, menuOpen }: { onMenuToggle: (open: boolean) 
           ? "glass border-b border-border"
           : "border-b border-transparent"
       }`}
+      aria-label="Main navigation"
     >
       <div className="flex items-center justify-between px-5 md:px-8 lg:px-12 py-5 md:py-6 max-w-7xl mx-auto">
         <Link
           to="/"
-          className="group text-sm md:text-base font-semibold tracking-[0.1em] uppercase text-text-primary hover:text-accent transition-colors"
+          className="group text-sm md:text-base font-semibold tracking-[0.1em] uppercase text-text-primary hover:text-accent transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded-sm"
           style={{ fontFamily: "var(--font-display)" }}
         >
           <span className="relative">
@@ -44,9 +45,10 @@ function Navigation({ onMenuToggle, menuOpen }: { onMenuToggle: (open: boolean) 
         <div className="flex items-center gap-4 md:gap-8">
           <button
             onClick={() => onMenuToggle(!menuOpen)}
-            className="group flex items-center justify-center gap-2 w-11 h-11 md:w-auto md:h-auto text-sm font-medium tracking-[0.15em] uppercase text-text-primary hover:text-accent transition-colors"
+            className="group flex items-center justify-center gap-2 w-11 h-11 md:w-auto md:h-auto text-sm font-medium tracking-[0.15em] uppercase text-text-primary hover:text-accent transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded-full"
             style={{ fontFamily: "var(--font-display)" }}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
           >
             <span className="relative w-5 h-4 flex flex-col justify-between">
               <span className={`block w-full h-[1.5px] bg-current transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[7px]" : ""}`} />

@@ -53,7 +53,7 @@ function Skills() {
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`group relative w-full text-left p-4 md:p-5 rounded-2xl transition-all duration-300 min-h-[56px] overflow-hidden ${
+              className={`group relative w-full text-left p-4 md:p-5 rounded-2xl transition-all duration-300 min-h-[56px] overflow-hidden focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg ${
                 activeCategory === category.id
                   ? "glass border-accent/30 text-text-primary"
                   : "glass border-border hover:border-border-light text-text-secondary"
@@ -63,12 +63,12 @@ function Skills() {
                 <span className="text-xl md:text-2xl group-hover:scale-110 transition-transform duration-300">{category.icon}</span>
                 <div>
                   <p
-                    className="font-medium text-base md:text-lg"
+                    className="font-medium text-base md:text-lg tracking-wide"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     {category.name}
                   </p>
-                  <p className="text-[10px] md:text-xs text-text-muted">
+                  <p className="text-[10px] md:text-xs text-text-muted tracking-wide">
                     {category.skills.length} skills
                   </p>
                 </div>
@@ -91,11 +91,11 @@ function Skills() {
               </h3>
             </div>
 
-            <div key={activeCategory} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div key={activeCategory} className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {activeSkills.map((skill, i) => (
                 <motion.div
                   key={skill.name}
-                  className="glass rounded-2xl p-6 md:p-7 hover:border-accent/30 transition-all duration-300"
+                  className="glass rounded-2xl p-6 md:p-8 hover:border-accent/30 transition-all duration-300 border-border"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.05, duration: 0.6, ease: easeOut }}

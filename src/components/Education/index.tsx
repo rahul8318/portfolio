@@ -51,7 +51,7 @@ function Education() {
         </h2>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
         {education.map((edu, idx) => (
           <motion.div
             key={edu.id}
@@ -62,7 +62,7 @@ function Education() {
           >
             <div className="flex items-center justify-between mb-5 md:mb-6">
               <span
-                className="text-[10px] md:text-xs px-4 py-2 md:px-4 md:py-2 rounded-full border"
+                className="text-[10px] md:text-xs px-4 py-2 md:px-4 md:py-2 rounded-full border tracking-wide"
                 style={{
                   color: typeColors[edu.type] || "#3b82f6",
                   borderColor: typeColors[edu.type] + "40",

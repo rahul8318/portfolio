@@ -59,11 +59,11 @@ function About() {
                   </div>
                   <h3
                     className="text-2xl md:text-3xl font-bold text-text-primary mb-2"
-                    style={{ fontFamily: "var(--font-display)" }}
+                    style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.02em" }}
                   >
                     Rahul Kumar
                   </h3>
-                  <p className="text-text-secondary">Full Stack Developer</p>
+                  <p className="text-text-secondary tracking-wide">Full Stack Developer</p>
                 </div>
               </div>
             </div>
@@ -115,14 +115,14 @@ function About() {
           </div>
 
           <div className="grid grid-cols-2 gap-3 md:gap-4">
-            <div className="glass rounded-2xl p-6 md:p-8">
-              <div className="text-3xl md:text-4xl font-bold text-text-primary mb-2" style={{ fontFamily: "var(--font-display)" }}>
+            <div className="glass rounded-2xl p-6 md:p-8 border-border">
+              <div className="text-3xl md:text-4xl font-bold text-text-primary mb-2" style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.02em" }}>
                 {personalInfo.leetCodeSolved}+
               </div>
               <p className="text-xs md:text-sm text-text-muted tracking-wide">LeetCode Problems Solved</p>
             </div>
-            <div className="glass rounded-2xl p-6 md:p-8">
-              <div className="text-3xl md:text-4xl font-bold text-text-primary mb-2" style={{ fontFamily: "var(--font-display)" }}>
+            <div className="glass rounded-2xl p-6 md:p-8 border-border">
+              <div className="text-3xl md:text-4xl font-bold text-text-primary mb-2" style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.02em" }}>
                 MERN
               </div>
               <p className="text-xs md:text-sm text-text-muted tracking-wide">Full Stack Expertise</p>
@@ -143,14 +143,14 @@ function About() {
         >
           Tech Stack
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5">
           {skillsData.map((category) => {
             const Icon = iconMap[category.id] || Globe
             return (
               <motion.div
                 key={category.id}
                 variants={itemVariants}
-                className="glass rounded-2xl p-5 md:p-6 hover:border-accent/30 transition-all duration-500 group cursor-default"
+                className="glass rounded-2xl p-6 md:p-8 hover:border-accent/30 transition-all duration-500 group cursor-default border-border"
               >
                 <div className="flex flex-col items-center text-center">
                   <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent mb-3 group-hover:scale-110 group-hover:border-accent/40 transition-all duration-300">

@@ -236,7 +236,7 @@ function Projects() {
                 <div className="flex flex-wrap items-center gap-4">
                   <Link
                     to={`/work/${project.slug}`}
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 md:px-9 md:py-5 bg-white text-bg text-sm font-medium tracking-[0.12em] uppercase rounded-full hover:bg-accent hover:text-white transition-all duration-300 min-h-[52px] shadow-lg shadow-white/10 hover:shadow-accent/30"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 md:px-10 md:py-5 bg-white text-bg text-sm md:text-base font-semibold tracking-[0.12em] uppercase rounded-full hover:bg-accent hover:text-white transition-all duration-500 min-h-[52px] md:min-h-[56px] shadow-lg shadow-white/10 hover:shadow-accent/30 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     <span>View Project</span>
@@ -249,7 +249,7 @@ function Projects() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors min-h-[52px] px-6 tracking-wide"
+                      className="inline-flex items-center justify-center gap-2 px-8 py-4 md:px-10 md:py-5 glass text-text-primary text-sm md:text-base font-semibold tracking-[0.12em] uppercase rounded-full hover:border-accent/50 hover:text-white transition-all duration-500 min-h-[52px] md:min-h-[56px] focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
                       style={{ fontFamily: "var(--font-display)" }}
                     >
                       <span>Live Demo</span>

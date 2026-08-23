@@ -53,7 +53,7 @@ function Playground() {
         </motion.div>
 
         <motion.div
-          className="relative h-[340px] md:h-[450px] lg:h-[550px] rounded-2xl md:rounded-3xl glass border-border overflow-hidden"
+          className="relative h-[340px] md:h-[450px] lg:h-[550px] rounded-3xl glass border-border overflow-hidden"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 1, delay: 0.3, ease: easeOut }}
@@ -97,7 +97,7 @@ function Playground() {
                   <p className="text-[10px] md:text-xs text-text-muted tracking-[0.2em] uppercase mb-2">
                     {isMobile ? "Tap to interact" : "Hover to interact"}
                   </p>
-                  <p className="text-4xl md:text-6xl font-bold text-text-muted tracking-wider" style={{ fontFamily: "var(--font-display)" }}>
+                  <p className="text-4xl md:text-6xl font-bold text-text-muted tracking-[0.2em]" style={{ fontFamily: "var(--font-display)" }}>
                     PLAY
                   </p>
                 </div>

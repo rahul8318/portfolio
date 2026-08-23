@@ -68,7 +68,7 @@ function Contact() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-6 mb-10 md:mb-12">
             <a
               href={`mailto:${personalInfo.email}`}
-              className="group relative w-full sm:w-auto px-10 py-5 md:px-12 md:py-6 bg-white text-bg text-sm font-semibold tracking-[0.12em] uppercase rounded-full hover:bg-accent hover:text-white transition-all duration-500 inline-flex items-center justify-center gap-3 min-h-[56px] shadow-lg shadow-white/10 hover:shadow-accent/30"
+              className="group relative w-full sm:w-auto px-8 py-4 md:px-10 md:py-5 bg-white text-bg text-sm md:text-base font-semibold tracking-[0.12em] uppercase rounded-full hover:bg-accent hover:text-white transition-all duration-500 inline-flex items-center justify-center gap-3 min-h-[52px] md:min-h-[56px] shadow-lg shadow-white/10 hover:shadow-accent/30 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
               style={{ fontFamily: "var(--font-display)" }}
             >
               <Mail size={20} className="md:w-6 md:h-6" />
@@ -76,7 +76,7 @@ function Contact() {
             </a>
             <a
               href={`tel:${personalInfo.phone}`}
-              className="glass px-10 py-5 md:px-12 md:py-6 text-text-primary text-sm font-semibold tracking-[0.12em] uppercase rounded-full hover:border-accent/50 hover:text-white transition-all duration-500 inline-flex items-center justify-center gap-3 min-h-[56px]"
+              className="glass px-8 py-4 md:px-10 md:py-5 text-text-primary text-sm md:text-base font-semibold tracking-[0.12em] uppercase rounded-full hover:border-accent/50 hover:text-white transition-all duration-500 inline-flex items-center justify-center gap-3 min-h-[52px] md:min-h-[56px] focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
               style={{ fontFamily: "var(--font-display)" }}
             >
               <Phone size={20} className="md:w-6 md:h-6" />
@@ -91,7 +91,7 @@ function Contact() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors tracking-widest uppercase min-h-[48px] px-5 py-3 rounded-full glass hover:border-accent/30 tracking-wide"
+                className="group flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors tracking-wide px-5 py-3 rounded-full glass hover:border-accent/30 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 <link.icon size={18} className="group-hover:text-accent transition-colors" />
