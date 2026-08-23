@@ -55,14 +55,14 @@ function Education() {
         {education.map((edu, idx) => (
           <motion.div
             key={edu.id}
-            className="glass rounded-2xl md:rounded-3xl p-5 md:p-6 border-border hover:border-accent/20 hover:shadow-[0_0_30px_rgba(59,130,246,0.08)] transition-all duration-500 group flex flex-col h-full"
+            className="glass rounded-2xl md:rounded-3xl p-6 md:p-8 border-border hover:border-accent/20 hover:shadow-[0_0_30px_rgba(59,130,246,0.08)] transition-all duration-500 group flex flex-col h-full"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: idx * 0.1, ease: easeOut }}
           >
-            <div className="flex items-center justify-between mb-4 md:mb-5">
+            <div className="flex items-center justify-between mb-5 md:mb-6">
               <span
-                className="text-[10px] md:text-xs px-3 py-1 md:px-3 md:py-1.5 rounded-full border"
+                className="text-[10px] md:text-xs px-4 py-2 md:px-4 md:py-2 rounded-full border"
                 style={{
                   color: typeColors[edu.type] || "#3b82f6",
                   borderColor: typeColors[edu.type] + "40",
@@ -71,28 +71,28 @@ function Education() {
               >
                 {typeLabels[edu.type] || edu.type}
               </span>
-              <span className="text-[10px] md:text-xs text-text-muted">
+              <span className="text-[10px] md:text-xs text-text-muted tracking-wide">
                 {edu.startDate} — {edu.endDate}
               </span>
             </div>
 
             <div className="flex-1 flex flex-col">
               <h3
-                className="text-xl md:text-2xl font-bold mb-1.5 md:mb-2 text-text-primary group-hover:text-accent transition-colors"
+                className="text-xl md:text-2xl font-bold mb-2 md:mb-3 text-text-primary group-hover:text-accent transition-colors tracking-wide"
                 style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.02em" }}
               >
                 {edu.degree}
               </h3>
-              <p className="text-accent text-sm md:text-base mb-1 md:mb-1.5">
+              <p className="text-accent text-sm md:text-base mb-2 md:mb-3 tracking-wide">
                 {edu.field}
               </p>
-              <p className="text-text-secondary text-sm mb-1 md:mb-2">{edu.institution}</p>
-              <div className="mt-auto pt-3 border-t border-border">
-                <p className="text-text-muted text-xs md:text-sm">
+              <p className="text-text-secondary text-sm mb-2 md:mb-3 tracking-wide">{edu.institution}</p>
+              <div className="mt-auto pt-4 border-t border-border">
+                <p className="text-text-muted text-xs md:text-sm tracking-wide">
                   {edu.location}
                 </p>
                 {edu.cgpa && (
-                  <p className="text-text-secondary text-xs md:text-sm mt-1">
+                  <p className="text-text-secondary text-xs md:text-sm mt-2 tracking-wide">
                     <span className="text-text-muted">CGPA:</span>{" "}
                     <span className="text-text-primary font-medium">{edu.cgpa}</span>
                   </p>

@@ -95,8 +95,8 @@ function About() {
             </span>
           </h2>
 
-          <div className="space-y-4 md:space-y-5 mb-8 md:mb-10">
-            <p className="text-base md:text-lg text-text-secondary leading-relaxed">
+          <div className="space-y-5 md:space-y-6 mb-10 md:mb-12">
+            <p className="text-base md:text-lg text-text-secondary leading-relaxed tracking-wide">
               I'm a{" "}
               <span className="text-text-primary font-medium">
                 Computer Science undergraduate
@@ -105,7 +105,7 @@ function About() {
               digital experiences with the{" "}
               <span className="text-accent font-medium">MERN stack</span>.
             </p>
-            <p className="text-sm md:text-base text-text-muted leading-relaxed">
+            <p className="text-sm md:text-base text-text-muted leading-relaxed tracking-wide">
               I specialize in React.js, Node.js, Express.js, and MongoDB,
               creating full-stack applications that are scalable, performant,
               and user-centric. With a strong foundation in Data Structures &
@@ -115,17 +115,17 @@ function About() {
           </div>
 
           <div className="grid grid-cols-2 gap-3 md:gap-4">
-            <div className="glass rounded-2xl p-5 md:p-6">
-              <div className="text-3xl md:text-4xl font-bold text-text-primary mb-1" style={{ fontFamily: "var(--font-display)" }}>
+            <div className="glass rounded-2xl p-6 md:p-8">
+              <div className="text-3xl md:text-4xl font-bold text-text-primary mb-2" style={{ fontFamily: "var(--font-display)" }}>
                 {personalInfo.leetCodeSolved}+
               </div>
-              <p className="text-xs md:text-sm text-text-muted">LeetCode Problems Solved</p>
+              <p className="text-xs md:text-sm text-text-muted tracking-wide">LeetCode Problems Solved</p>
             </div>
-            <div className="glass rounded-2xl p-5 md:p-6">
-              <div className="text-3xl md:text-4xl font-bold text-text-primary mb-1" style={{ fontFamily: "var(--font-display)" }}>
+            <div className="glass rounded-2xl p-6 md:p-8">
+              <div className="text-3xl md:text-4xl font-bold text-text-primary mb-2" style={{ fontFamily: "var(--font-display)" }}>
                 MERN
               </div>
-              <p className="text-xs md:text-sm text-text-muted">Full Stack Expertise</p>
+              <p className="text-xs md:text-sm text-text-muted tracking-wide">Full Stack Expertise</p>
             </div>
           </div>
         </motion.div>
@@ -150,19 +150,19 @@ function About() {
               <motion.div
                 key={category.id}
                 variants={itemVariants}
-                className="glass rounded-2xl p-4 md:p-5 hover:border-accent/30 transition-all duration-500 group cursor-default"
+                className="glass rounded-2xl p-5 md:p-6 hover:border-accent/30 transition-all duration-500 group cursor-default"
               >
                 <div className="flex flex-col items-center text-center">
                   <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent mb-3 group-hover:scale-110 group-hover:border-accent/40 transition-all duration-300">
                     <Icon size={20} className="md:w-6 md:h-6" />
                   </div>
                   <p
-                    className="text-sm font-medium text-text-primary mb-1"
+                    className="text-sm font-medium text-text-primary mb-1 tracking-wide"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     {category.name}
                   </p>
-                  <p className="text-[10px] md:text-xs text-text-muted">
+                  <p className="text-[10px] md:text-xs text-text-muted tracking-wide">
                     {category.skills.length} tools
                   </p>
                 </div>

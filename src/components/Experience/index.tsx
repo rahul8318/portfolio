@@ -71,24 +71,24 @@ function Experience() {
                 </div>
               </div>
 
-              <p className="text-text-secondary leading-relaxed mb-4 md:mb-6 max-w-2xl text-sm md:text-base">
+              <p className="text-text-secondary leading-relaxed mb-5 md:mb-6 max-w-2xl text-sm md:text-base tracking-wide">
                 {exp.description}
               </p>
 
-              <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
+              <div className="flex flex-wrap gap-2 mb-5 md:mb-6">
                 {exp.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1.5 md:px-3 md:py-1.5 text-xs rounded-full glass border-border text-text-secondary min-h-[32px] flex items-center"
+                    className="px-4 py-2 text-xs rounded-full glass border-border text-text-secondary min-h-[36px] flex items-center tracking-wide"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
 
-              <ul className="space-y-2 md:space-y-3">
+              <ul className="space-y-3 md:space-y-4">
                 {exp.responsibilities.map((resp, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-text-secondary">
+                  <li key={i} className="flex items-start gap-3 text-sm text-text-secondary tracking-wide">
                     <span className="text-accent mt-0.5 flex-shrink-0">→</span>
                     <span>{resp}</span>
                   </li>

@@ -59,27 +59,27 @@ function Contact() {
             </span>
           </h2>
 
-          <p className="text-text-secondary max-w-xl mx-auto mb-10 md:mb-12 text-base md:text-lg leading-relaxed">
+          <p className="text-text-secondary max-w-xl mx-auto mb-10 md:mb-12 text-base md:text-lg leading-relaxed tracking-wide">
             I'm always open to new opportunities and collaborations.
             Whether you have a project in mind or just want to say hello,
             feel free to reach out.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5 mb-10 md:mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-6 mb-10 md:mb-12">
             <a
               href={`mailto:${personalInfo.email}`}
-              className="group relative w-full sm:w-auto px-8 py-4 md:px-10 md:py-5 bg-white text-bg text-sm font-semibold tracking-[0.1em] uppercase rounded-full hover:bg-accent hover:text-white transition-all duration-500 inline-flex items-center justify-center gap-3 min-h-[52px] shadow-lg shadow-white/10 hover:shadow-accent/30"
+              className="group relative w-full sm:w-auto px-10 py-5 md:px-12 md:py-6 bg-white text-bg text-sm font-semibold tracking-[0.12em] uppercase rounded-full hover:bg-accent hover:text-white transition-all duration-500 inline-flex items-center justify-center gap-3 min-h-[56px] shadow-lg shadow-white/10 hover:shadow-accent/30"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              <Mail size={18} className="md:w-5 md:h-5" />
+              <Mail size={20} className="md:w-6 md:h-6" />
               Let's Talk
             </a>
             <a
               href={`tel:${personalInfo.phone}`}
-              className="glass px-8 py-4 md:px-10 md:py-5 text-text-primary text-sm font-semibold tracking-[0.1em] uppercase rounded-full hover:border-accent/50 hover:text-white transition-all duration-500 inline-flex items-center justify-center gap-3 min-h-[52px]"
+              className="glass px-10 py-5 md:px-12 md:py-6 text-text-primary text-sm font-semibold tracking-[0.12em] uppercase rounded-full hover:border-accent/50 hover:text-white transition-all duration-500 inline-flex items-center justify-center gap-3 min-h-[56px]"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              <Phone size={18} className="md:w-5 md:h-5" />
+              <Phone size={20} className="md:w-6 md:h-6" />
               {personalInfo.phone}
             </a>
           </div>
@@ -91,10 +91,10 @@ function Contact() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors tracking-widest uppercase min-h-[40px] px-4 py-2 rounded-full glass hover:border-accent/30"
+                className="group flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors tracking-widest uppercase min-h-[48px] px-5 py-3 rounded-full glass hover:border-accent/30 tracking-wide"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                <link.icon size={16} className="group-hover:text-accent transition-colors" />
+                <link.icon size={18} className="group-hover:text-accent transition-colors" />
                 <span>{link.label}</span>
               </a>
             ))}

@@ -86,61 +86,61 @@ function PrepForgeMockup({ isHovered }: { isHovered: boolean }) {
         </div>
       </div>
 
-      <div className="relative p-3 md:p-6 bg-gradient-to-br from-bg-secondary to-bg min-h-[200px] md:min-h-[300px]">
-        <div className="flex flex-col md:flex-row gap-3 md:gap-4 h-full">
+      <div className="relative p-4 md:p-8 bg-gradient-to-br from-bg-secondary to-bg min-h-[200px] md:min-h-[300px]">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-6 h-full">
           <div className="flex md:flex-col items-center md:items-stretch gap-2 md:gap-3 md:w-14 lg:w-16 flex-shrink-0 overflow-x-auto md:overflow-visible">
-            <div className="p-1.5 md:p-2 rounded-lg bg-accent/10 border border-accent/20 flex-shrink-0">
+            <div className="p-2 md:p-2 rounded-lg bg-accent/10 border border-accent/20 flex-shrink-0">
               <div className="w-5 h-5 md:w-6 md:h-6 mx-auto rounded bg-accent/20" />
             </div>
-            <div className="p-1.5 md:p-2 rounded-lg hover:bg-bg-tertiary/50 flex-shrink-0">
+            <div className="p-2 md:p-2 rounded-lg hover:bg-bg-tertiary/50 flex-shrink-0">
               <div className="w-5 h-5 md:w-6 md:h-6 mx-auto rounded bg-border" />
             </div>
-            <div className="p-1.5 md:p-2 rounded-lg hover:bg-bg-tertiary/50 flex-shrink-0">
+            <div className="p-2 md:p-2 rounded-lg hover:bg-bg-tertiary/50 flex-shrink-0">
               <div className="w-5 h-5 md:w-6 md:h-6 mx-auto rounded bg-border" />
             </div>
-            <div className="p-1.5 md:p-2 rounded-lg hover:bg-bg-tertiary/50 flex-shrink-0">
+            <div className="p-2 md:p-2 rounded-lg hover:bg-bg-tertiary/50 flex-shrink-0">
               <div className="w-5 h-5 md:w-6 md:h-6 mx-auto rounded bg-border" />
             </div>
           </div>
 
-          <div className="flex-1 space-y-3 md:space-y-4 min-w-0">
+          <div className="flex-1 space-y-4 md:space-y-5 min-w-0">
             <div className="flex items-center justify-between gap-2">
               <div className="min-w-0">
-                <p className="text-[10px] md:text-xs text-text-muted mb-0.5 md:mb-1">Welcome back</p>
-                <p className="text-sm md:text-lg font-semibold text-text-primary truncate">Start Practicing</p>
+                <p className="text-[10px] md:text-xs text-text-muted mb-1 tracking-wide">Welcome back</p>
+                <p className="text-sm md:text-lg font-semibold text-text-primary truncate tracking-wide">Start Practicing</p>
               </div>
-              <div className="px-2 py-1 md:px-3 md:py-1.5 rounded-full bg-accent/10 border border-accent/20 text-[10px] md:text-xs text-accent flex-shrink-0">
+              <div className="px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-accent/10 border border-accent/20 text-[10px] md:text-xs text-accent flex-shrink-0 tracking-wide">
                 12 Day Streak
               </div>
             </div>
 
             <div className="grid grid-cols-3 gap-2 md:gap-3">
               {["Coding", "Technical", "HR"].map((type) => (
-                <div key={type} className="p-2 md:p-4 rounded-lg md:rounded-xl glass border-border hover:border-accent/30 transition-colors">
+                <div key={type} className="p-3 md:p-5 rounded-lg md:rounded-xl glass border-border hover:border-accent/30 transition-colors">
                   <div className="text-lg md:text-2xl mb-1 md:mb-2">{type === "Coding" ? "💻" : type === "Technical" ? "🧠" : "🗣️"}</div>
-                  <p className="text-xs md:text-sm font-medium text-text-primary truncate">{type}</p>
-                  <p className="text-[10px] md:text-xs text-text-muted mt-0.5 md:mt-1">Practice</p>
+                  <p className="text-xs md:text-sm font-medium text-text-primary truncate tracking-wide">{type}</p>
+                  <p className="text-[10px] md:text-xs text-text-muted mt-0.5 md:mt-1 tracking-wide">Practice</p>
                 </div>
               ))}
             </div>
 
-            <div className="p-3 md:p-4 rounded-lg md:rounded-xl glass border-border">
-              <p className="text-[10px] md:text-xs text-text-muted mb-2 md:mb-3">Recent Progress</p>
-              <div className="space-y-1.5 md:space-y-2">
+            <div className="p-3 md:p-5 rounded-lg md:rounded-xl glass border-border">
+              <p className="text-[10px] md:text-xs text-text-muted mb-2 md:mb-3 tracking-wide">Recent Progress</p>
+              <div className="space-y-2 md:space-y-3">
                 {[
                   { label: "DSA Problems", progress: 75 },
                   { label: "Technical Round", progress: 60 },
                   { label: "HR Questions", progress: 40 },
                 ].map((item) => (
                   <div key={item.label} className="flex items-center gap-2 md:gap-3">
-                    <span className="text-[10px] md:text-xs text-text-secondary w-16 md:w-28 flex-shrink-0 truncate">{item.label}</span>
-                    <div className="flex-1 h-1 md:h-1.5 bg-bg-tertiary rounded-full overflow-hidden">
+                    <span className="text-[10px] md:text-xs text-text-secondary w-16 md:w-28 flex-shrink-0 truncate tracking-wide">{item.label}</span>
+                    <div className="flex-1 h-1.5 md:h-2 bg-bg-tertiary rounded-full overflow-hidden">
                       <div
                         className="h-full bg-accent rounded-full"
                         style={{ width: `${item.progress}%` }}
                       />
                     </div>
-                    <span className="text-[10px] md:text-xs text-text-muted flex-shrink-0">{item.progress}%</span>
+                    <span className="text-[10px] md:text-xs text-text-muted flex-shrink-0 tracking-wide">{item.progress}%</span>
                   </div>
                 ))}
               </div>
@@ -209,7 +209,7 @@ function Projects() {
                   {String(project.index).padStart(2, "0")} — {project.subtitle}
                 </span>
                 <h3
-                  className="font-bold mb-4 md:mb-5 text-text-primary group-hover:text-accent transition-colors duration-500"
+                  className="font-bold mb-5 text-text-primary group-hover:text-accent transition-colors duration-500 tracking-wide"
                   style={{
                     fontFamily: "var(--font-display)",
                     letterSpacing: "-0.03em",
@@ -218,25 +218,25 @@ function Projects() {
                 >
                   {project.title}
                 </h3>
-                <p className="text-text-secondary leading-relaxed mb-4 md:mb-5 text-sm md:text-base lg:text-lg">
+                <p className="text-text-secondary leading-relaxed mb-5 text-sm md:text-base lg:text-lg tracking-wide">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-4 md:mb-5">
+                <div className="flex flex-wrap gap-2 mb-5">
                   {project.stack.slice(0, 4).map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1.5 md:px-3 md:py-1.5 text-xs rounded-full glass border-border text-text-secondary"
+                      className="px-4 py-2 text-xs rounded-full glass border-border text-text-secondary tracking-wide"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex flex-wrap items-center gap-3 md:gap-4">
+                <div className="flex flex-wrap items-center gap-4">
                   <Link
                     to={`/work/${project.slug}`}
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 md:px-7 md:py-3.5 bg-white text-bg text-sm font-medium tracking-[0.12em] uppercase rounded-full hover:bg-accent hover:text-white transition-all duration-300 min-h-[48px] shadow-lg shadow-white/10 hover:shadow-accent/30"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 md:px-9 md:py-5 bg-white text-bg text-sm font-medium tracking-[0.12em] uppercase rounded-full hover:bg-accent hover:text-white transition-all duration-300 min-h-[52px] shadow-lg shadow-white/10 hover:shadow-accent/30"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     <span>View Project</span>
@@ -249,12 +249,12 @@ function Projects() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors min-h-[48px] px-4"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              <span>Live Demo</span>
-              <ExternalLink size={14} className="flex-shrink-0" />
-            </a>
+                      className="inline-flex items-center justify-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors min-h-[52px] px-6 tracking-wide"
+                      style={{ fontFamily: "var(--font-display)" }}
+                    >
+                      <span>Live Demo</span>
+                      <ExternalLink size={16} className="flex-shrink-0" />
+                    </a>
                   )}
                 </div>
               </div>

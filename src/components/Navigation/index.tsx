@@ -29,7 +29,7 @@ function Navigation({ onMenuToggle, menuOpen }: { onMenuToggle: (open: boolean) 
           : "border-b border-transparent"
       }`}
     >
-      <div className="flex items-center justify-between px-5 md:px-8 lg:px-12 py-4 md:py-5 max-w-7xl mx-auto">
+      <div className="flex items-center justify-between px-5 md:px-8 lg:px-12 py-5 md:py-6 max-w-7xl mx-auto">
         <Link
           to="/"
           className="group text-sm md:text-base font-semibold tracking-[0.1em] uppercase text-text-primary hover:text-accent transition-colors"
@@ -44,7 +44,7 @@ function Navigation({ onMenuToggle, menuOpen }: { onMenuToggle: (open: boolean) 
         <div className="flex items-center gap-4 md:gap-8">
           <button
             onClick={() => onMenuToggle(!menuOpen)}
-            className="group flex items-center justify-center gap-2 w-10 h-10 md:w-auto md:h-auto text-sm font-medium tracking-[0.15em] uppercase text-text-primary hover:text-accent transition-colors"
+            className="group flex items-center justify-center gap-2 w-11 h-11 md:w-auto md:h-auto text-sm font-medium tracking-[0.15em] uppercase text-text-primary hover:text-accent transition-colors"
             style={{ fontFamily: "var(--font-display)" }}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
           >

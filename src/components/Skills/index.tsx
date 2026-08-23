@@ -78,13 +78,13 @@ function Skills() {
         </div>
 
         <div className="lg:col-span-8">
-          <div className="glass rounded-3xl p-6 md:p-8 lg:p-10 min-h-[300px] md:min-h-[400px]">
-            <div className="flex items-center gap-2 md:gap-3 mb-6 md:mb-8">
+          <div className="glass rounded-3xl p-8 md:p-10 lg:p-12 min-h-[300px] md:min-h-[400px]">
+            <div className="flex items-center gap-3 md:gap-4 mb-8 md:mb-10">
               <span className="text-2xl md:text-3xl">
                 {skillsData.find((s) => s.id === activeCategory)?.icon}
               </span>
               <h3
-                className="text-xl md:text-2xl font-bold text-text-primary"
+                className="text-xl md:text-2xl font-bold text-text-primary tracking-wide"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {skillsData.find((s) => s.id === activeCategory)?.name}
@@ -95,26 +95,26 @@ function Skills() {
               {activeSkills.map((skill, i) => (
                 <motion.div
                   key={skill.name}
-                  className="glass rounded-2xl p-5 hover:border-accent/30 transition-all duration-300"
+                  className="glass rounded-2xl p-6 md:p-7 hover:border-accent/30 transition-all duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.05, duration: 0.6, ease: easeOut }}
                 >
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center justify-between mb-4">
                     <span
-                      className="font-medium text-sm md:text-base text-text-primary"
+                      className="font-medium text-sm md:text-base text-text-primary tracking-wide"
                       style={{ fontFamily: "var(--font-display)" }}
                     >
                       {skill.name}
                     </span>
                     {skill.level && (
-                      <span className="text-xs text-text-muted tabular-nums">
+                      <span className="text-xs text-text-muted tabular-nums tracking-wide">
                         {skill.level}%
                       </span>
                     )}
                   </div>
                   {skill.level && (
-                    <div className="h-1.5 bg-bg-tertiary rounded-full overflow-hidden">
+                    <div className="h-2 bg-bg-tertiary rounded-full overflow-hidden">
                       <motion.div
                         className="h-full rounded-full"
                         style={{

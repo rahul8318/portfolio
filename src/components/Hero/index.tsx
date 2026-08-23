@@ -62,7 +62,7 @@ function Hero() {
         </motion.h1>
 
         <motion.p
-          className="text-base md:text-xl text-text-secondary max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed"
+          className="text-base md:text-xl text-text-secondary max-w-2xl mx-auto mb-10 md:mb-12 leading-relaxed tracking-wide"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, delay: 0.4 }}
@@ -78,14 +78,14 @@ function Hero() {
         >
           <a
             href="#work"
-            className="group relative w-full sm:w-auto px-8 py-4 md:px-10 md:py-5 bg-white text-bg text-sm md:text-base font-semibold tracking-[0.1em] uppercase rounded-full hover:bg-blue-500 hover:text-white transition-all duration-500 text-center min-h-[52px] flex items-center justify-center shadow-lg shadow-white/10 hover:shadow-blue-500/30"
+            className="group relative w-full sm:w-auto px-10 py-5 md:px-12 md:py-6 bg-white text-bg text-sm md:text-base font-semibold tracking-[0.12em] uppercase rounded-full hover:bg-blue-500 hover:text-white transition-all duration-500 text-center min-h-[56px] flex items-center justify-center shadow-lg shadow-white/10 hover:shadow-blue-500/30"
             style={{ fontFamily: "var(--font-display)" }}
           >
             View Projects
           </a>
           <a
             href="#contact"
-            className="group relative w-full sm:w-auto px-8 py-4 md:px-10 md:py-5 glass text-text-primary text-sm md:text-base font-semibold tracking-[0.1em] uppercase rounded-full hover:border-blue-500/50 hover:text-white transition-all duration-500 text-center min-h-[52px] flex items-center justify-center"
+            className="group relative w-full sm:w-auto px-10 py-5 md:px-12 md:py-6 glass text-text-primary text-sm md:text-base font-semibold tracking-[0.12em] uppercase rounded-full hover:border-accent/50 hover:text-white transition-all duration-500 text-center min-h-[56px] flex items-center justify-center"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Contact Me
