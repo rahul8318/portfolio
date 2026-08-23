@@ -25,19 +25,19 @@ function Contact() {
   const socialLinks = [
     { icon: GithubIcon, href: personalInfo.github, label: "GitHub" },
     { icon: LinkedinIcon, href: personalInfo.linkedin, label: "LinkedIn" },
-    { icon: Phone, href: `tel:${personalInfo.phone}`, label: "Phone" },
+    { icon: Mail, href: `mailto:${personalInfo.email}`, label: "Email" },
   ]
 
   return (
-    <section id="contact" className="py-20 md:py-28 lg:py-36 px-5 md:px-6 lg:px-8" ref={ref} style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-      <div className="max-w-7xl mx-auto text-center">
+    <section id="contact" className="py-24 md:py-32 lg:py-40 px-5 md:px-6 lg:px-8" ref={ref} style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
+      <div className="max-w-4xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, ease: easeOut }}
         >
           <p
-            className="text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-zinc-500 mb-6 md:mb-8"
+            className="text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-accent mb-6 md:mb-8"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Get In Touch
@@ -48,53 +48,53 @@ function Contact() {
             style={{
               fontFamily: "var(--font-display)",
               letterSpacing: "-0.04em",
-              fontSize: "clamp(2.5rem, 7vw, 6rem)",
+              fontSize: "clamp(2.5rem, 7vw, 5rem)",
             }}
           >
             Let's Build
             <br />
             Something{" "}
-            <span className="text-blue-500">Great.</span>
+            <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+              Great.
+            </span>
           </h2>
 
-          <p className="text-zinc-300 max-w-xl mx-auto mb-8 md:mb-10 text-sm md:text-base lg:text-lg leading-relaxed">
+          <p className="text-text-secondary max-w-xl mx-auto mb-10 md:mb-12 text-base md:text-lg leading-relaxed">
             I'm always open to new opportunities and collaborations.
             Whether you have a project in mind or just want to say hello,
             feel free to reach out.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5 mb-10 md:mb-12">
             <a
               href={`mailto:${personalInfo.email}`}
-              className="group relative w-full sm:w-auto px-7 py-3.5 md:px-8 md:py-4 bg-white text-black text-sm font-semibold tracking-[0.15em] uppercase rounded-full hover:bg-blue-500 hover:text-white transition-all duration-500 inline-flex items-center justify-center gap-3 min-h-[48px] overflow-hidden"
+              className="group relative w-full sm:w-auto px-8 py-4 md:px-10 md:py-5 bg-white text-bg text-sm font-semibold tracking-[0.1em] uppercase rounded-full hover:bg-accent hover:text-white transition-all duration-500 inline-flex items-center justify-center gap-3 min-h-[52px] shadow-lg shadow-white/10 hover:shadow-accent/30"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              <span className="relative z-10 flex items-center gap-3">
-                <Mail size={18} className="md:w-5 md:h-5" />
-                Let's Talk
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <Mail size={18} className="md:w-5 md:h-5" />
+              Let's Talk
             </a>
-
             <a
-              href={`mailto:${personalInfo.email}`}
-              className="text-zinc-300 hover:text-white transition-colors text-base md:text-lg break-all min-h-[48px] flex items-center justify-center px-4"
+              href={`tel:${personalInfo.phone}`}
+              className="glass px-8 py-4 md:px-10 md:py-5 text-text-primary text-sm font-semibold tracking-[0.1em] uppercase rounded-full hover:border-accent/50 hover:text-white transition-all duration-500 inline-flex items-center justify-center gap-3 min-h-[52px]"
+              style={{ fontFamily: "var(--font-display)" }}
             >
-              {personalInfo.email}
+              <Phone size={18} className="md:w-5 md:h-5" />
+              {personalInfo.phone}
             </a>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-5 md:gap-7 mt-10 md:mt-12">
+          <div className="flex flex-wrap items-center justify-center gap-5 md:gap-7">
             {socialLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-xs md:text-sm text-zinc-300 hover:text-white transition-colors tracking-widest uppercase min-h-[40px] px-3 py-2 rounded-full hover:bg-zinc-900/50"
+                className="group flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors tracking-widest uppercase min-h-[40px] px-4 py-2 rounded-full glass hover:border-accent/30"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                <link.icon size={16} className="group-hover:text-blue-400 transition-colors" />
+                <link.icon size={16} className="group-hover:text-accent transition-colors" />
                 <span>{link.label}</span>
               </a>
             ))}

@@ -24,7 +24,7 @@ function About() {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.15,
         delayChildren: 0.2,
       },
     },
@@ -40,16 +40,41 @@ function About() {
   }
 
   return (
-    <section id="about" className="py-20 md:py-28 lg:py-36 px-5 md:px-6 lg:px-8" ref={ref} style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
+    <section id="about" className="py-24 md:py-32 lg:py-40 px-5 md:px-6 lg:px-8" ref={ref} style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
       <motion.div
-        className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 lg:gap-20"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
-        <motion.div variants={itemVariants}>
+        <motion.div variants={itemVariants} className="order-2 lg:order-1">
+          <div className="relative">
+            <div className="aspect-square max-w-md mx-auto lg:max-w-none rounded-3xl overflow-hidden glass p-1">
+              <div className="w-full h-full rounded-2xl bg-gradient-to-br from-blue-500/20 to-emerald-500/20 flex items-center justify-center">
+                <div className="text-center p-8">
+                  <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center mb-6 shadow-lg shadow-blue-500/30">
+                    <span className="text-4xl font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>
+                      RK
+                    </span>
+                  </div>
+                  <h3
+                    className="text-2xl md:text-3xl font-bold text-text-primary mb-2"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    Rahul Kumar
+                  </h3>
+                  <p className="text-text-secondary">Full Stack Developer</p>
+                </div>
+              </div>
+            </div>
+            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-2xl opacity-20 blur-2xl" />
+            <div className="absolute -top-4 -left-4 w-32 h-32 bg-gradient-to-br from-emerald-500 to-blue-500 rounded-full opacity-10 blur-3xl" />
+          </div>
+        </motion.div>
+
+        <motion.div variants={itemVariants} className="order-1 lg:order-2 flex flex-col justify-center">
           <p
-            className="text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-zinc-500 mb-4 md:mb-6"
+            className="text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-accent mb-4 md:mb-6"
             style={{ fontFamily: "var(--font-display)" }}
           >
             About Me
@@ -65,69 +90,55 @@ function About() {
             I build things
             <br />
             that{" "}
-            <span className="text-blue-500">matter.</span>
+            <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+              matter.
+            </span>
           </h2>
-        </motion.div>
 
-        <motion.div variants={itemVariants} className="space-y-4 md:space-y-5">
-          <p className="text-base md:text-lg text-zinc-200 leading-relaxed">
-            I'm a{" "}
-            <span className="text-white font-medium">
-              Computer Science undergraduate
-            </span>{" "}
-            expected to graduate in 2028, focused on building exceptional
-            digital experiences with the{" "}
-            <span className="text-blue-400 font-medium">MERN stack</span>.
-          </p>
-          <p className="text-sm md:text-base text-zinc-300 leading-relaxed">
-            I specialize in React.js, Node.js, Express.js, and MongoDB,
-            creating full-stack applications that are scalable, performant,
-            and user-centric. With a strong foundation in Data Structures &
-            Algorithms and core computer science concepts, I bring both
-            engineering rigor and creative problem-solving to every project.
-          </p>
+          <div className="space-y-4 md:space-y-5 mb-8 md:mb-10">
+            <p className="text-base md:text-lg text-text-secondary leading-relaxed">
+              I'm a{" "}
+              <span className="text-text-primary font-medium">
+                Computer Science undergraduate
+              </span>{" "}
+              expected to graduate in 2028, focused on building exceptional
+              digital experiences with the{" "}
+              <span className="text-accent font-medium">MERN stack</span>.
+            </p>
+            <p className="text-sm md:text-base text-text-muted leading-relaxed">
+              I specialize in React.js, Node.js, Express.js, and MongoDB,
+              creating full-stack applications that are scalable, performant,
+              and user-centric. With a strong foundation in Data Structures &
+              Algorithms and core computer science concepts, I bring both
+              engineering rigor and creative problem-solving to every project.
+            </p>
+          </div>
 
-          <div className="grid grid-cols-2 gap-3 md:gap-5 pt-5 md:pt-8">
-            <div className="group relative p-5 md:p-6 rounded-2xl md:rounded-3xl bg-zinc-900/50 border border-zinc-800 hover:border-blue-500/30 transition-all duration-500 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative">
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-3 md:mb-4 group-hover:scale-110 group-hover:border-blue-500/40 transition-all duration-300">
-                  <Code2 size={20} className="md:w-6 md:h-6" />
-                </div>
-                <div className="font-bold text-blue-500 mb-1 md:mb-2" style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.75rem, 4vw, 3rem)" }}>
-                  {personalInfo.leetCodeSolved}+
-                </div>
-                <p className="text-xs md:text-sm text-zinc-300 tracking-wide">
-                  LeetCode Problems Solved
-                </p>
+          <div className="grid grid-cols-2 gap-3 md:gap-4">
+            <div className="glass rounded-2xl p-5 md:p-6">
+              <div className="text-3xl md:text-4xl font-bold text-text-primary mb-1" style={{ fontFamily: "var(--font-display)" }}>
+                {personalInfo.leetCodeSolved}+
               </div>
+              <p className="text-xs md:text-sm text-text-muted">LeetCode Problems Solved</p>
             </div>
-            <div className="group relative p-5 md:p-6 rounded-2xl md:rounded-3xl bg-zinc-900/50 border border-zinc-800 hover:border-blue-500/30 transition-all duration-500 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative">
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-3 md:mb-4 group-hover:scale-110 group-hover:border-blue-500/40 transition-all duration-300">
-                  <Award size={20} className="md:w-6 md:h-6" />
-                </div>
-                <div className="font-bold text-blue-500 mb-1 md:mb-2" style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.75rem, 4vw, 3rem)" }}>
-                  MERN
-                </div>
-                <p className="text-xs md:text-sm text-zinc-300 tracking-wide">
-                  Full Stack Expertise
-                </p>
+            <div className="glass rounded-2xl p-5 md:p-6">
+              <div className="text-3xl md:text-4xl font-bold text-text-primary mb-1" style={{ fontFamily: "var(--font-display)" }}>
+                MERN
               </div>
+              <p className="text-xs md:text-sm text-text-muted">Full Stack Expertise</p>
             </div>
           </div>
         </motion.div>
       </motion.div>
 
       <motion.div
-        className="mt-14 md:mt-20 lg:mt-28"
+        className="mt-20 md:mt-28 lg:mt-36"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
         <p
-          className="text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-zinc-500 mb-5 md:mb-6"
+          className="text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-accent mb-5 md:mb-6"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Tech Stack
@@ -139,20 +150,19 @@ function About() {
               <motion.div
                 key={category.id}
                 variants={itemVariants}
-                className="group relative p-4 md:p-5 rounded-2xl md:rounded-3xl bg-zinc-900/30 border border-zinc-800/50 hover:border-blue-500/30 hover:bg-zinc-900/50 transition-all duration-500 overflow-hidden"
+                className="glass rounded-2xl p-4 md:p-5 hover:border-accent/30 transition-all duration-500 group cursor-default"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative">
-                  <div className="text-xl md:text-2xl mb-2 md:mb-3 group-hover:scale-110 group-hover:text-blue-400 transition-all duration-300">
-                    <Icon size={24} className="md:w-7 md:h-7" />
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent mb-3 group-hover:scale-110 group-hover:border-accent/40 transition-all duration-300">
+                    <Icon size={20} className="md:w-6 md:h-6" />
                   </div>
                   <p
-                    className="text-sm font-medium mb-1 md:mb-2"
+                    className="text-sm font-medium text-text-primary mb-1"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     {category.name}
                   </p>
-                  <p className="text-[10px] md:text-xs text-zinc-500">
+                  <p className="text-[10px] md:text-xs text-text-muted">
                     {category.skills.length} tools
                   </p>
                 </div>

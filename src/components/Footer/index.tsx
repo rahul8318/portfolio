@@ -29,7 +29,7 @@ function Footer() {
   ]
 
   return (
-    <footer className="py-16 md:py-24 px-5 md:px-6 lg:px-8 border-t border-zinc-800/50" ref={ref} style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
+    <footer className="py-16 md:py-24 px-5 md:px-6 lg:px-8 border-t border-border" ref={ref} style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
@@ -38,22 +38,22 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
           <div className="md:col-span-5">
             <h3
-              className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4 text-white"
+              className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4 text-text-primary"
               style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.03em" }}
             >
               Rahul Kumar
             </h3>
-            <p className="text-zinc-400 text-sm mb-3 md:mb-6">
+            <p className="text-text-secondary text-sm mb-3 md:mb-6">
               Full Stack Developer • MERN Stack
             </p>
-            <p className="text-zinc-500 text-sm">
+            <p className="text-text-muted text-sm">
               {personalInfo.location}
             </p>
           </div>
 
           <div className="md:col-span-3 md:col-start-7">
             <p
-              className="text-xs uppercase tracking-[0.2em] text-zinc-400 mb-4"
+              className="text-xs uppercase tracking-[0.2em] text-text-muted mb-4"
               style={{ fontFamily: "var(--font-display)" }}
             >
               Links
@@ -65,9 +65,9 @@ function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-3 text-sm text-zinc-300 hover:text-white transition-colors min-h-[32px]"
+                  className="group flex items-center gap-3 text-sm text-text-secondary hover:text-text-primary transition-colors min-h-[32px]"
                 >
-                  <link.icon size={16} className="group-hover:text-blue-400 transition-colors" />
+                  <link.icon size={16} className="group-hover:text-accent transition-colors" />
                   {link.label}
                 </a>
               ))}
@@ -76,33 +76,33 @@ function Footer() {
 
           <div className="md:col-span-3">
             <p
-              className="text-xs uppercase tracking-[0.2em] text-zinc-400 mb-4"
+              className="text-xs uppercase tracking-[0.2em] text-text-muted mb-4"
               style={{ fontFamily: "var(--font-display)" }}
             >
               Projects
             </p>
             <div className="space-y-3">
-              <a href="/#work" className="group flex items-center gap-3 text-sm text-zinc-300 hover:text-white transition-colors min-h-[32px]">
-                <span className="w-1.5 h-1.5 rounded-full bg-zinc-600 group-hover:bg-blue-500 group-hover:scale-150 transition-all" />
+              <a href="/#work" className="group flex items-center gap-3 text-sm text-text-secondary hover:text-text-primary transition-colors min-h-[32px]">
+                <span className="w-1.5 h-1.5 rounded-full bg-text-muted group-hover:bg-accent group-hover:scale-150 transition-all" />
                 PrepForge
               </a>
-              <a href="/#work" className="group flex items-center gap-3 text-sm text-zinc-300 hover:text-white transition-colors min-h-[32px]">
-                <span className="w-1.5 h-1.5 rounded-full bg-zinc-600 group-hover:bg-blue-500 group-hover:scale-150 transition-all" />
+              <a href="/#work" className="group flex items-center gap-3 text-sm text-text-secondary hover:text-text-primary transition-colors min-h-[32px]">
+                <span className="w-1.5 h-1.5 rounded-full bg-text-muted group-hover:bg-accent group-hover:scale-150 transition-all" />
                 Wanderlust
               </a>
-              <a href="/#work" className="group flex items-center gap-3 text-sm text-zinc-300 hover:text-white transition-colors min-h-[32px]">
-                <span className="w-1.5 h-1.5 rounded-full bg-zinc-600 group-hover:bg-blue-500 group-hover:scale-150 transition-all" />
+              <a href="/#work" className="group flex items-center gap-3 text-sm text-text-secondary hover:text-text-primary transition-colors min-h-[32px]">
+                <span className="w-1.5 h-1.5 rounded-full bg-text-muted group-hover:bg-accent group-hover:scale-150 transition-all" />
                 Zerodha Clone
               </a>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-zinc-800/30 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
-          <p className="text-xs text-zinc-500">
+        <div className="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
+          <p className="text-xs text-text-muted">
             © {personalInfo.year} {personalInfo.name}. All rights reserved.
           </p>
-          <p className="text-xs text-zinc-600">
+          <p className="text-xs text-text-muted">
             Built with React • Three.js • GSAP
           </p>
         </div>

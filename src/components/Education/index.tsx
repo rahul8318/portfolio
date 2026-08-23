@@ -22,7 +22,7 @@ function Education() {
   }
 
   return (
-    <section id="education" className="py-20 md:py-28 lg:py-36 px-5 md:px-6 lg:px-8" ref={ref} style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
+    <section id="education" className="py-24 md:py-32 lg:py-40 px-5 md:px-6 lg:px-8" ref={ref} style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
       <motion.div
         className="mb-10 md:mb-14 lg:mb-16"
         initial={{ opacity: 0, y: 30 }}
@@ -30,7 +30,7 @@ function Education() {
         transition={{ duration: 0.8 }}
       >
         <p
-          className="text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-zinc-500 mb-3 md:mb-4"
+          className="text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-accent mb-3 md:mb-4"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Education
@@ -45,7 +45,9 @@ function Education() {
         >
           Academic
           <br />
-          <span className="text-blue-500">Background</span>
+          <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+            Background
+          </span>
         </h2>
       </motion.div>
 
@@ -53,7 +55,7 @@ function Education() {
         {education.map((edu, idx) => (
           <motion.div
             key={edu.id}
-            className="p-5 md:p-6 rounded-2xl md:rounded-3xl bg-zinc-900/30 border border-zinc-800/50 hover:border-blue-500/20 hover:shadow-[0_0_30px_rgba(59,130,246,0.08)] transition-all duration-500 group flex flex-col h-full"
+            className="glass rounded-2xl md:rounded-3xl p-5 md:p-6 border-border hover:border-accent/20 hover:shadow-[0_0_30px_rgba(59,130,246,0.08)] transition-all duration-500 group flex flex-col h-full"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: idx * 0.1, ease: easeOut }}
@@ -69,30 +71,30 @@ function Education() {
               >
                 {typeLabels[edu.type] || edu.type}
               </span>
-              <span className="text-[10px] md:text-xs text-zinc-400">
+              <span className="text-[10px] md:text-xs text-text-muted">
                 {edu.startDate} — {edu.endDate}
               </span>
             </div>
 
             <div className="flex-1 flex flex-col">
               <h3
-                className="text-xl md:text-2xl font-bold mb-1.5 md:mb-2 text-white group-hover:text-blue-400 transition-colors"
+                className="text-xl md:text-2xl font-bold mb-1.5 md:mb-2 text-text-primary group-hover:text-accent transition-colors"
                 style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.02em" }}
               >
                 {edu.degree}
               </h3>
-              <p className="text-blue-400 text-sm md:text-base mb-1 md:mb-1.5">
+              <p className="text-accent text-sm md:text-base mb-1 md:mb-1.5">
                 {edu.field}
               </p>
-              <p className="text-zinc-300 text-sm mb-1 md:mb-2">{edu.institution}</p>
-              <div className="mt-auto pt-3 border-t border-zinc-800/50">
-                <p className="text-zinc-400 text-xs md:text-sm">
+              <p className="text-text-secondary text-sm mb-1 md:mb-2">{edu.institution}</p>
+              <div className="mt-auto pt-3 border-t border-border">
+                <p className="text-text-muted text-xs md:text-sm">
                   {edu.location}
                 </p>
                 {edu.cgpa && (
-                  <p className="text-zinc-300 text-xs md:text-sm mt-1">
-                    <span className="text-zinc-500">CGPA:</span>{" "}
-                    <span className="text-white font-medium">{edu.cgpa}</span>
+                  <p className="text-text-secondary text-xs md:text-sm mt-1">
+                    <span className="text-text-muted">CGPA:</span>{" "}
+                    <span className="text-text-primary font-medium">{edu.cgpa}</span>
                   </p>
                 )}
               </div>

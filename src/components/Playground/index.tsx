@@ -31,7 +31,7 @@ function Playground() {
           transition={{ duration: 0.8 }}
         >
           <p
-            className="text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-zinc-500 mb-4"
+            className="text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-accent mb-4"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Experiments
@@ -44,16 +44,16 @@ function Playground() {
               fontSize: "clamp(2rem, 5vw, 3.5rem)",
             }}
           >
-            Play<span className="text-blue-500">ground</span>
+            Play<span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">ground</span>
           </h2>
-          <p className="text-zinc-400 mt-6 max-w-xl mx-auto text-sm md:text-base">
+          <p className="text-text-secondary mt-6 max-w-xl mx-auto text-sm md:text-base">
             I don't only build applications. I enjoy experimenting with the web
             — pushing boundaries and exploring what's possible.
           </p>
         </motion.div>
 
         <motion.div
-          className="relative h-[320px] md:h-[400px] lg:h-[500px] rounded-2xl md:rounded-3xl bg-zinc-900/30 border border-zinc-800/50 overflow-hidden"
+          className="relative h-[320px] md:h-[400px] lg:h-[500px] rounded-2xl md:rounded-3xl glass border-border overflow-hidden"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 1, delay: 0.3, ease: easeOut }}
@@ -94,10 +94,10 @@ function Playground() {
 
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="text-center">
-                  <p className="text-[10px] md:text-xs text-zinc-600 tracking-[0.2em] uppercase mb-1 md:mb-2">
+                  <p className="text-[10px] md:text-xs text-text-muted tracking-[0.2em] uppercase mb-1 md:mb-2">
                     {isMobile ? "Tap to interact" : "Hover to interact"}
                   </p>
-                  <p className="text-4xl md:text-6xl font-bold text-zinc-800" style={{ fontFamily: "var(--font-display)" }}>
+                  <p className="text-4xl md:text-6xl font-bold text-text-muted" style={{ fontFamily: "var(--font-display)" }}>
                     PLAY
                   </p>
                 </div>
