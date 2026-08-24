@@ -19,8 +19,6 @@
   --font-family-body: 'Inter', system-ui, sans-serif;
   --font-family-mono: 'JetBrains Mono', monospace;
 
-  --spacing-section: clamp(64px, 10vw, 160px);
-  --spacing-container: clamp(20px, 4vw, 80px);
   --breakpoint-xs: 475px;
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
@@ -44,7 +42,6 @@
   --font-display: 'Poppins', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --section-padding: clamp(64px, 10vw, 160px);
   --container-max: 1280px;
   --container-padding: clamp(20px, 4vw, 80px);
   --glass-bg: rgba(30, 41, 59, 0.7);

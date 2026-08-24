@@ -33,10 +33,10 @@ function Hero() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6 md:mb-8">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full glass border-emerald-500/20 mb-6 md:mb-8">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.5)]" />
             <p
-              className="text-xs md:text-sm uppercase tracking-[0.2em] md:tracking-[0.3em] text-text-secondary"
+              className="text-xs md:text-sm uppercase tracking-[0.2em] md:tracking-[0.3em] text-text-primary"
               style={{ fontFamily: "var(--font-display)" }}
             >
               Available for opportunities
