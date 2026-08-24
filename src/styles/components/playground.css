@@ -1,0 +1,189 @@
+@import '../base.css';
+
+/* ============================================
+   PLAYGROUND SECTION
+   ============================================ */
+
+.playground {
+  padding: var(--space-2xl) var(--space-md);
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .playground {
+    padding: var(--space-3xl) var(--space-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .playground {
+    padding: var(--space-3xl) var(--space-2xl);
+  }
+}
+
+.playground-header {
+  text-align: center;
+  max-width: 40rem;
+  margin: 0 auto var(--space-2xl);
+}
+
+@media (min-width: 768px) {
+  .playground-header {
+    margin-bottom: var(--space-3xl);
+  }
+}
+
+.playground-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--text-primary);
+  font-size: clamp(2.1rem, 8vw, 3.5rem);
+  margin-bottom: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .playground-title {
+    margin-bottom: var(--space-xl);
+  }
+}
+
+.playground-description {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  padding: 0 var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .playground-description {
+    font-size: 1rem;
+    padding: 0;
+  }
+}
+
+.playground-card {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+@media (min-width: 640px) {
+  .playground-card {
+    border-radius: var(--radius-xl);
+  }
+}
+
+.playground-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.playground-glow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 8rem;
+  height: 8rem;
+  border-radius: var(--radius-full);
+  background: rgba(59, 130, 246, 0.06);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .playground-glow {
+    width: 12rem;
+    height: 12rem;
+  }
+}
+
+.playground-boxes {
+  position: absolute;
+  inset: 0;
+}
+
+.playground-box {
+  position: absolute;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: box-shadow var(--transition-base);
+}
+
+@media (min-width: 640px) {
+  .playground-box {
+    border-radius: var(--radius-lg);
+  }
+}
+
+.playground-box-active {
+  z-index: 10;
+}
+
+.playground-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  text-align: center;
+  pointer-events: none;
+  width: 11rem;
+}
+
+@media (min-width: 640px) {
+  .playground-center {
+    width: 15rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .playground-center {
+    width: 17.5rem;
+  }
+}
+
+.playground-center-hint {
+  font-family: var(--font-display);
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+@media (min-width: 640px) {
+  .playground-center-hint {
+    font-size: 0.625rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .playground-center-hint {
+    font-size: 0.6875rem;
+  }
+}
+
+.playground-center-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.12);
+  font-size: clamp(2rem, 8vw, 4rem);
+}

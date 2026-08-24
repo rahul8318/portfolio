@@ -1,0 +1,120 @@
+@import '../base.css';
+
+/* ============================================
+   MARQUEE SECTION
+   ============================================ */
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: var(--space-2xl) 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.marquee-fade {
+  position: absolute;
+  inset-y: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.marquee-fade-left {
+  left: 0;
+  width: 3rem;
+  background: linear-gradient(to right, var(--bg), transparent);
+}
+
+@media (min-width: 640px) {
+  .marquee-fade-left {
+    width: 5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .marquee-fade-left {
+    width: 7rem;
+  }
+}
+
+.marquee-fade-right {
+  right: 0;
+  width: 3rem;
+  background: linear-gradient(to left, var(--bg), transparent);
+}
+
+@media (min-width: 640px) {
+  .marquee-fade-right {
+    width: 5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .marquee-fade-right {
+    width: 7rem;
+  }
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+}
+
+.marquee-track-inner {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.06);
+  line-height: 1;
+}
+
+@media (min-width: 640px) {
+  .marquee-item {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .marquee-item {
+    font-size: 3.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .marquee-item {
+    font-size: 4.5rem;
+  }
+}
+
+.marquee-dot {
+  margin: 0 1.25rem;
+  color: rgba(59, 130, 246, 0.35);
+}
+
+@media (min-width: 640px) {
+  .marquee-dot {
+    margin: 0 1.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .marquee-dot {
+    margin: 0 2rem;
+  }
+}
+
+.marquee-reverse .marquee-track {
+  animation-direction: reverse;
+}

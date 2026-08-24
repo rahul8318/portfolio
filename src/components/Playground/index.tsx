@@ -12,97 +12,104 @@ function Playground() {
   const isMobile = useMediaQuery("(max-width: 768px)")
 
   const boxes = [
-    { x: 0, y: 0, color: "#3b82f6", size: 70 },
-    { x: 140, y: -50, color: "#6366f1", size: 55 },
-    { x: -100, y: 70, color: "#8b5cf6", size: 60 },
-    { x: 220, y: 90, color: "#3b82f6", size: 45 },
-    { x: -170, y: -30, color: "#6366f1", size: 65 },
+    { x: "50%", y: "50%", translateX: "-50%", translateY: "-50%", size: "clamp(48px, 7vw, 72px)", color: "#3b82f6" },
+    { x: "68%", y: "32%", translateX: "-50%", translateY: "-50%", size: "clamp(42px, 6vw, 60px)", color: "#6366f1" },
+    { x: "30%", y: "68%", translateX: "-50%", translateY: "-50%", size: "clamp(44px, 6.5vw, 64px)", color: "#8b5cf6" },
+    { x: "78%", y: "68%", translateX: "-50%", translateY: "-50%", size: "clamp(36px, 5vw, 50px)", color: "#3b82f6" },
+    { x: "22%", y: "34%", translateX: "-50%", translateY: "-50%", size: "clamp(46px, 6vw, 66px)", color: "#6366f1" },
   ]
 
-  const scale = isMobile ? 0.65 : 1
-
   return (
-    <section id="playground" className="py-24 md:py-32 lg:py-40 px-5 md:px-6 lg:px-8" ref={ref} style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          className="text-center mb-12 md:mb-16 lg:mb-24"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-        >
-          <p
-            className="text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-accent mb-4"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            Experiments
-          </p>
-          <h2
-            className="font-bold leading-[0.95]"
-            style={{
-              fontFamily: "var(--font-display)",
-              letterSpacing: "-0.03em",
-              fontSize: "clamp(2rem, 5vw, 3.5rem)",
-            }}
-          >
-            Play<span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">ground</span>
+    <section id="playground" className="playground" ref={ref}>
+      <div className="container">
+        {/* Header */}
+        <div className="playground-header">
+          <p className="section-label">Experiments</p>
+          <h2 className="playground-title">
+            Play<span className="text-gradient">ground</span>
           </h2>
-          <p className="text-text-secondary mt-6 max-w-xl mx-auto text-sm md:text-base">
-            I don't only build applications. I enjoy experimenting with the web
-            — pushing boundaries and exploring what's possible.
+          <p className="playground-description">
+            I don't only build applications. I enjoy experimenting with the
+            web — pushing boundaries and exploring what's possible.
           </p>
-        </motion.div>
+        </div>
 
+        {/* Playground Card */}
         <motion.div
-          className="relative h-[340px] md:h-[450px] lg:h-[550px] rounded-3xl glass border-border overflow-hidden"
-          initial={{ opacity: 0, scale: 0.95 }}
+          className="playground-card"
+          initial={{ opacity: 0, scale: 0.96 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 1, delay: 0.3, ease: easeOut }}
+          transition={{ duration: 0.9, delay: 0.2, ease: easeOut }}
+          style={{ height: "clamp(320px, 50vh, 520px)" }}
         >
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div
-              className="relative w-full h-full max-w-4xl"
-              style={{ transform: `scale(${scale})`, transformOrigin: "center center" }}
-            >
-              {boxes.map((box, i) => (
+          {/* Grid Background */}
+          <div className="playground-grid" />
+
+          {/* Center Glow */}
+          <div className="playground-glow" />
+
+          {/* Interactive Boxes */}
+          <div className="playground-boxes">
+            {boxes.map((box, i) => {
+              const isActive = hoveredBox === i
+
+              return (
                 <motion.div
                   key={i}
-                  className="absolute rounded-xl cursor-pointer"
+                  className={`playground-box ${isActive ? "playground-box-active" : ""}`}
                   style={{
-                    left: `calc(50% + ${box.x}px)`,
-                    top: `calc(50% + ${box.y}px)`,
+                    left: box.x,
+                    top: box.y,
                     width: box.size,
                     height: box.size,
-                    marginLeft: -box.size / 2,
-                    marginTop: -box.size / 2,
+                    translateX: box.translateX,
+                    translateY: box.translateY,
                     background: `linear-gradient(135deg, ${box.color}, ${box.color}88)`,
-                    boxShadow: hoveredBox === i
-                      ? `0 0 40px ${box.color}50, 0 0 80px ${box.color}20`
-                      : "none",
+                    boxShadow: isActive
+                      ? `0 0 30px ${box.color}55, 0 0 70px ${box.color}25`
+                      : `0 8px 30px ${box.color}12`,
                   }}
                   animate={{
-                    x: hoveredBox === i ? (i % 2 === 0 ? 12 : -12) : 0,
-                    y: hoveredBox === i ? (i % 2 === 0 ? -12 : 12) : 0,
-                    rotate: hoveredBox === i ? 8 : 0,
-                    scale: hoveredBox === i ? 1.15 : 1,
+                    x: isActive
+                      ? i % 2 === 0
+                        ? 10
+                        : -10
+                      : 0,
+                    y: isActive
+                      ? i % 2 === 0
+                        ? -10
+                        : 10
+                      : 0,
+                    rotate: isActive ? 7 : 0,
+                    scale: isActive ? 1.12 : 1,
                   }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  onHoverStart={() => !isMobile && setHoveredBox(i)}
-                  onHoverEnd={() => !isMobile && setHoveredBox(null)}
-                  onTap={() => isMobile && setHoveredBox(hoveredBox === i ? null : i)}
+                  transition={{
+                    type: "spring",
+                    stiffness: 280,
+                    damping: 20,
+                  }}
+                  onHoverStart={() => {
+                    if (!isMobile) setHoveredBox(i)
+                  }}
+                  onHoverEnd={() => {
+                    if (!isMobile) setHoveredBox(null)
+                  }}
+                  onClick={() => {
+                    if (isMobile) {
+                      setHoveredBox(hoveredBox === i ? null : i)
+                    }
+                  }}
                 />
-              ))}
+              )
+            })}
+          </div>
 
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="text-center">
-                  <p className="text-[10px] md:text-xs text-text-muted tracking-[0.2em] uppercase mb-2">
-                    {isMobile ? "Tap to interact" : "Hover to interact"}
-                  </p>
-                  <p className="text-4xl md:text-6xl font-bold text-text-muted tracking-[0.2em]" style={{ fontFamily: "var(--font-display)" }}>
-                    PLAY
-                  </p>
-                </div>
-              </div>
-            </div>
+          {/* Center Content */}
+          <div className="playground-center">
+            <p className="playground-center-hint">
+              {isMobile ? "Tap to interact" : "Hover to interact"}
+            </p>
+            <p className="playground-center-text">PLAY</p>
           </div>
         </motion.div>
       </div>

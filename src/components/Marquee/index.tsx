@@ -7,34 +7,55 @@ interface MarqueeProps {
   className?: string
 }
 
-function Marquee({ text, reverse = false, speed = 30, className = "" }: MarqueeProps) {
-  const repeated = Array(10).fill(text).join(" • ")
+function Marquee({
+  text,
+  reverse = false,
+  speed = 30,
+  className = "",
+}: MarqueeProps) {
+  const items = Array.from({ length: 6 }, () => text)
 
   return (
-    <div className={`overflow-hidden whitespace-nowrap ${className}`}>
+    <div className={`marquee ${className}`}>
+      {/* LEFT / RIGHT FADE */}
+      <div className="marquee-fade marquee-fade-left" />
+      <div className="marquee-fade marquee-fade-right" />
+
       <motion.div
-        className="inline-block"
+        className="marquee-track"
         animate={{
-          x: reverse ? [0, -repeated.length * 8] : [-repeated.length * 8, 0],
+          x: reverse ? ["-50%", "0%"] : ["0%", "-50%"],
         }}
         transition={{
-          duration: speed,
+          duration: Math.max(speed, 10),
           repeat: Infinity,
           ease: "linear",
+          repeatType: "loop",
         }}
       >
-        <span
-          className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight text-zinc-800/80"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
-          {repeated}
-        </span>
-        <span
-          className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight text-zinc-800/80 mx-4"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
-          {repeated}
-        </span>
+        {/* TRACK 1 */}
+        <div className="marquee-track-inner">
+          {items.map((item, index) => (
+            <span key={`first-${index}`} className="marquee-item">
+              {item}
+              <span aria-hidden="true" className="marquee-dot">
+                •
+              </span>
+            </span>
+          ))}
+        </div>
+
+        {/* TRACK 2 */}
+        <div className="marquee-track-inner" aria-hidden="true">
+          {items.map((item, index) => (
+            <span key={`second-${index}`} className="marquee-item">
+              {item}
+              <span aria-hidden="true" className="marquee-dot">
+                •
+              </span>
+            </span>
+          ))}
+        </div>
       </motion.div>
     </div>
   )

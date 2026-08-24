@@ -1,0 +1,16 @@
+@import './base.css';
+@import './components/hero.css';
+@import './components/navigation.css';
+@import './components/about.css';
+@import './components/projects.css';
+@import './components/skills.css';
+@import './components/experience.css';
+@import './components/education.css';
+@import './components/contact.css';
+@import './components/footer.css';
+@import './components/loader.css';
+@import './components/playground.css';
+@import './components/certifications.css';
+@import './components/marquee.css';
+@import './components/custom-cursor.css';
+@import './components/project-page.css';

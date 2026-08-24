@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react"
+import { useEffect, useRef } from "react"
 import { useMousePosition } from "../../hooks/useMousePosition"
 
 interface CustomCursorProps {
@@ -6,61 +6,120 @@ interface CustomCursorProps {
   isHovering?: boolean
 }
 
-function CustomCursor({ hoverText = "", isHovering = false }: CustomCursorProps) {
+function CustomCursor({
+  hoverText = "",
+  isHovering = false,
+}: CustomCursorProps) {
   const dotRef = useRef<HTMLDivElement>(null)
   const ringRef = useRef<HTMLDivElement>(null)
+
   const { x, y } = useMousePosition()
-  const [ringPos, setRingPos] = useState({ x: 0, y: 0 })
+
+  const mouseRef = useRef({
+    x: 0,
+    y: 0,
+  })
+
+  const ringPositionRef = useRef({
+    x: 0,
+    y: 0,
+  })
+
+  const animationFrameRef = useRef<number | null>(null)
 
   useEffect(() => {
-    const handleMouseMove = () => {
-      if (dotRef.current) {
-        dotRef.current.style.left = `${x}px`
-        dotRef.current.style.top = `${y}px`
+    mouseRef.current.x = x
+    mouseRef.current.y = y
+
+    if (dotRef.current) {
+      dotRef.current.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%) ${
+        isHovering ? "scale(0)" : "scale(1)"
+      }`
+
+      dotRef.current.style.opacity = isHovering ? "0" : "1"
+    }
+  }, [x, y, isHovering])
+
+  useEffect(() => {
+    const animate = () => {
+      const targetX = mouseRef.current.x
+      const targetY = mouseRef.current.y
+
+      const currentX = ringPositionRef.current.x
+      const currentY = ringPositionRef.current.y
+
+      const nextX = currentX + (targetX - currentX) * 0.15
+      const nextY = currentY + (targetY - currentY) * 0.15
+
+      ringPositionRef.current.x = nextX
+      ringPositionRef.current.y = nextY
+
+      if (ringRef.current) {
+        ringRef.current.style.transform = `translate3d(${nextX}px, ${nextY}px, 0) translate(-50%, -50%)`
+      }
+
+      animationFrameRef.current = requestAnimationFrame(animate)
+    }
+
+    animationFrameRef.current = requestAnimationFrame(animate)
+
+    return () => {
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current)
       }
     }
-    handleMouseMove()
-  }, [x, y])
+  }, [])
 
   useEffect(() => {
-    let raf: number
-    const animate = () => {
-      setRingPos((prev) => ({
-        x: prev.x + (x - prev.x) * 0.15,
-        y: prev.y + (y - prev.y) * 0.15,
-      }))
-      raf = requestAnimationFrame(animate)
-    }
-    raf = requestAnimationFrame(animate)
-    return () => cancelAnimationFrame(raf)
-  }, [x, y])
+    const mediaQuery = window.matchMedia("(hover: hover) and (pointer: fine)")
 
-  useEffect(() => {
-    if (ringRef.current) {
-      ringRef.current.style.left = `${ringPos.x}px`
-      ringRef.current.style.top = `${ringPos.y}px`
+    const updateCursorVisibility = () => {
+      const visible = mediaQuery.matches
+
+      if (dotRef.current) {
+        dotRef.current.style.display = visible ? "block" : "none"
+      }
+
+      if (ringRef.current) {
+        ringRef.current.style.display = visible ? "flex" : "none"
+      }
     }
-  }, [ringPos])
+
+    updateCursorVisibility()
+
+    mediaQuery.addEventListener("change", updateCursorVisibility)
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateCursorVisibility)
+    }
+  }, [])
 
   return (
     <>
+      {/* Cursor Dot */}
       <div
         ref={dotRef}
+        aria-hidden="true"
         className="cursor-dot"
         style={{
-          left: `${x}px`,
-          top: `${y}px`,
-          transform: `translate(-50%, -50%) scale(${isHovering ? 0 : 1})`,
+          transform: `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%) ${
+            isHovering ? "scale(0)" : "scale(1)"
+          }`,
           opacity: isHovering ? 0 : 1,
-          transition: "transform 0.2s ease, opacity 0.2s ease",
+          transition:
+            "transform 180ms cubic-bezier(0.22, 1, 0.36, 1), opacity 180ms ease",
+          willChange: "transform, opacity",
         }}
       />
+
+      {/* Cursor Ring */}
       <div
         ref={ringRef}
-        className={`cursor-ring ${isHovering ? "hovering" : ""}`}
+        aria-hidden="true"
+        className={`cursor-ring ${isHovering ? "cursor-ring-hovering" : ""}`}
         style={{
-          left: `${ringPos.x}px`,
-          top: `${ringPos.y}px`,
+          transform: `translate3d(${ringPositionRef.current.x}px, ${ringPositionRef.current.y}px, 0) translate(-50%, -50%)`,
+          willChange: "transform",
         }}
       >
         {isHovering && hoverText && (

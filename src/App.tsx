@@ -7,7 +7,6 @@ import MenuOverlay from "@/components/Navigation/MenuOverlay"
 import HomePage from "@/pages/Home"
 import ProjectPage from "@/pages/Project"
 import { useMediaQuery } from "@/hooks/useMediaQuery"
-import "@/styles/animations.css"
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -38,8 +37,8 @@ function App() {
         </Routes>
       </main>
       {isMobile && (
-        <nav className="fixed bottom-0 left-0 right-0 z-50 glass border-t border-border px-5 py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))]" aria-label="Mobile navigation">
-          <div className="flex items-center justify-around">
+        <nav className="mobile-nav" aria-label="Mobile navigation">
+          <div className="mobile-nav-items">
             {[
               { label: "Home", href: "/", emoji: "🏠" },
               { label: "Work", href: "/#work", emoji: "💼" },
@@ -49,11 +48,11 @@ function App() {
               <a
                 key={item.label}
                 href={item.href}
-                className="flex flex-col items-center gap-1 text-text-muted hover:text-text-primary transition-colors min-h-[44px] justify-center px-3 py-1 rounded-full focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+                className="mobile-nav-item"
                 aria-label={item.label}
               >
-                <span className="text-base leading-none">{item.emoji}</span>
-                <span className="text-[10px] font-medium tracking-[0.15em] uppercase">{item.label}</span>
+                <span className="mobile-nav-item-emoji">{item.emoji}</span>
+                <span className="mobile-nav-item-label">{item.label}</span>
               </a>
             ))}
           </div>

@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 
 interface LoaderProps {
   onComplete: () => void
 }
 
+type Easing = [number, number, number, number]
+const easeOut: Easing = [0.76, 0, 0.24, 1]
+
 function Loader({ onComplete }: LoaderProps) {
   const [progress, setProgress] = useState(0)
-  const [phase, setPhase] = useState<"loading" | "reveal">("loading")
 
   useEffect(() => {
     const duration = 2000
@@ -21,8 +23,7 @@ function Loader({ onComplete }: LoaderProps) {
       setProgress(p)
       if (p >= 100) {
         clearInterval(timer)
-        setPhase("reveal")
-        setTimeout(onComplete, 800)
+        setTimeout(onComplete, 600)
       }
     }, interval)
 
@@ -31,61 +32,63 @@ function Loader({ onComplete }: LoaderProps) {
 
   return (
     <motion.div
-      className="loading-overlay"
-      exit={{ opacity: 0, scale: 1.05 }}
-      transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+      className="loader"
+      initial={{ opacity: 1 }}
+      exit={{ opacity: 0, scale: 1.02 }}
+      transition={{ duration: 0.8, ease: easeOut }}
     >
-      <div className="flex flex-col items-center gap-6 md:gap-8 px-6">
+      {/* Background Glow */}
+      <div className="loader-backdrop">
+        <div className="loader-glow" />
+      </div>
+
+      {/* Content */}
+      <div className="loader-content">
+        {/* Name */}
         <motion.div
-          className="relative text-center"
-          initial={{ opacity: 0, y: 20 }}
+          className="loader-name"
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, ease: easeOut }}
         >
-          <h1
-            className="font-bold tracking-tighter"
-            style={{
-              fontFamily: "var(--font-display)",
-              letterSpacing: "-0.05em",
-              fontSize: "clamp(2rem, 8vw, 4.5rem)",
-            }}
-          >
-            RAHUL KUMAR
-          </h1>
-          <div className="mt-2 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-50" />
+          <h1 className="loader-name-text">RAHUL KUMAR</h1>
+          <div className="loader-name-line" />
         </motion.div>
 
+        {/* Progress Number */}
         <motion.div
-          className="flex items-center gap-3 md:gap-4"
+          className="loader-progress"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
+          transition={{ delay: 0.25, duration: 0.6 }}
         >
-          <div className="font-light tabular-nums" style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.03em", fontSize: "clamp(3rem, 10vw, 6rem)" }}>
+          <span className="loader-progress-number">
             {String(progress).padStart(3, "0")}
-          </div>
-          <div className="text-xl md:text-2xl text-zinc-500 font-light">%</div>
+          </span>
+          <span className="loader-progress-percent">%</span>
         </motion.div>
 
+        {/* Progress Bar */}
         <motion.div
-          className="w-48 md:w-64 h-[2px] bg-zinc-800 rounded-full overflow-hidden"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
+          className="loader-bar"
+          initial={{ opacity: 0, scaleX: 0.8 }}
+          animate={{ opacity: 1, scaleX: 1 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
         >
           <motion.div
-            className="h-full bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"
+            className="loader-bar-fill"
             initial={{ width: "0%" }}
             animate={{ width: `${progress}%` }}
-            transition={{ duration: 0.1, ease: "linear" }}
+            transition={{ duration: 0.08, ease: "linear" }}
           />
         </motion.div>
 
+        {/* Role */}
         <motion.p
-          className="text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-zinc-600"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
+          className="loader-role"
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.65, duration: 0.6 }}
         >
           Full Stack Developer
         </motion.p>

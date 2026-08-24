@@ -1,16 +1,18 @@
 import { useRef, useMemo } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
-import { OrbitControls, Sphere, MeshDistortMaterial, Float, Environment, MeshTransmissionMaterial } from "@react-three/drei"
+import { OrbitControls, Sphere, MeshDistortMaterial, Float } from "@react-three/drei"
 import * as THREE from "three"
 
 function TorusKnot({ position, color, speed }: { position: [number, number, number]; color: string; speed: number }) {
   const meshRef = useRef<THREE.Mesh>(null)
+  
   useFrame((state) => {
     if (meshRef.current) {
       meshRef.current.rotation.x = state.clock.elapsedTime * speed
       meshRef.current.rotation.y = state.clock.elapsedTime * speed * 0.5
     }
   })
+  
   return (
     <Float speed={speed * 2} rotationIntensity={0.3} floatIntensity={1}>
       <mesh ref={meshRef} position={position}>
@@ -23,6 +25,7 @@ function TorusKnot({ position, color, speed }: { position: [number, number, numb
 
 function ParticleField({ count = 500, isMobile }: { count?: number; isMobile?: boolean }) {
   const mesh = useRef<THREE.Points>(null)
+  
   const particles = useMemo(() => {
     const actualCount = isMobile ? 150 : count
     const positions = new Float32Array(actualCount * 3)
@@ -145,7 +148,7 @@ interface ThreeSceneProps {
   isMobile?: boolean
 }
 
-function ThreeScene({ className, isMobile }: ThreeSceneProps) {
+export default function ThreeScene({ className, isMobile }: ThreeSceneProps) {
   return (
     <div className={className || "absolute inset-0"}>
       <Canvas
@@ -158,5 +161,3 @@ function ThreeScene({ className, isMobile }: ThreeSceneProps) {
     </div>
   )
 }
-
-export default ThreeScene
