@@ -24,7 +24,7 @@ const footerLinks = [
   { label: "Email", href: `mailto:${personalInfo.email}`, icon: Mail },
 ]
 
-const projects = ["PrepForge", "Wanderlust", "Zerodha Clone"]
+const projects = ["PrepForge", "DDJC", "Wanderlust", "Zerodha Clone"]
 
 function Footer() {
   const ref = useRef<HTMLDivElement>(null)

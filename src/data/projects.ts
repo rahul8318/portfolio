@@ -17,6 +17,10 @@ export interface Project {
   color: string
   index: number
   featured: boolean
+  // Team project fields
+  teamProject?: boolean
+  role?: string
+  contribution?: string[]
 }
 
 export const projects: Project[] = [
@@ -47,6 +51,48 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    id: "ddjc",
+    slug: "ddjc",
+    title: "Dalit Dignity & Justice Center",
+    subtitle: "Real-World Community Platform",
+    description: "Worked as a Backend Developer on a real-world team project for the Dalit Dignity & Justice Center (DDJC), contributing to backend architecture, APIs, database integration, data management, and administrative functionality for a platform focused on justice, rights, community engagement, and access to resources.",
+    longDescription: "The Dalit Dignity & Justice Center (DDJC) is a real-world platform focused on justice, dignity, constitutional rights, community support, legal assistance, youth leadership, resources, and connecting communities with relevant services and opportunities. I contributed to DDJC as a Backend Developer, building the server-side foundation of the platform alongside other team members.",
+    problem: "Communities need a centralized, trustworthy digital platform to access legal resources, raise concerns, and connect with support services — while organizations need a reliable backend to manage data, content, and engagement at scale.",
+    features: [
+      "Backend API architecture and endpoint design",
+      "Database schema design and MongoDB integration",
+      "CRUD operations for content, resources, and user data",
+      "Server-side validation and structured error handling",
+      "Form submission processing and data persistence",
+      "Admin-side data management endpoints",
+      "Frontend–backend integration across modules",
+      "Deployment and production backend configuration",
+    ],
+    challenge: "Designing a reliable backend that supports diverse content types, handles real user submissions, and integrates cleanly with the frontend — while working as part of a team with clearly scoped backend responsibilities.",
+    approach: "Built with Node.js and Express.js, structured around RESTful API endpoints and a well-defined MongoDB schema. Focused on clean request/response handling, validation, and predictable data flow that the frontend team could integrate against.",
+    result: "A production-deployed real-world platform serving the DDJC community, with a stable backend supporting content, resources, and administrative workflows.",
+    stack: ["Node.js", "Express.js", "MongoDB", "REST API", "JavaScript"],
+    liveUrl: "https://www.ddjc.org.in/",
+    image: "",
+    color: "#a855f7",
+    index: 2,
+    featured: true,
+    teamProject: true,
+    role: "Backend Developer",
+    contribution: [
+      "Designed and developed backend APIs using Node.js and Express.js",
+      "Implemented RESTful API endpoints for core platform modules",
+      "Designed MongoDB schemas and managed data persistence",
+      "Implemented CRUD operations across resources and user content",
+      "Handled form submissions and server-side data processing",
+      "Built admin-side data management endpoints",
+      "Added server-side validation and structured error handling",
+      "Integrated backend services with the frontend application",
+      "Collaborated with frontend developers and other team members",
+      "Assisted with deployment and production backend configuration",
+    ],
+  },
+  {
     id: "wanderlust",
     slug: "wanderlust",
     title: "Wanderlust",
@@ -72,7 +118,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/rahul8318",
     image: "",
     color: "#f59e0b",
-    index: 2,
+    index: 3,
     featured: true,
   },
   {
@@ -101,7 +147,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/rahul8318",
     image: "",
     color: "#10b981",
-    index: 3,
+    index: 4,
     featured: true,
   },
 ]

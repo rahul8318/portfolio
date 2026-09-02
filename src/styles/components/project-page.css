@@ -503,3 +503,91 @@
 .project-not-found-link:hover {
   color: var(--text-primary);
 }
+
+/* ============================================
+   TEAM PROJECT + CONTRIBUTION (DDJC etc.)
+   ============================================ */
+
+.project-team-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+@media (min-width: 640px) {
+  .project-team-banner {
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+}
+
+.project-team-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .project-team-badge {
+    font-size: 0.6875rem;
+    padding: var(--space-sm) var(--space-lg);
+  }
+}
+
+.project-team-badge-team {
+  color: #60a5fa;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  background: rgba(96, 165, 250, 0.08);
+}
+
+.project-team-badge-role {
+  color: #a78bfa;
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  background: rgba(167, 139, 250, 0.08);
+}
+
+.project-team-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.project-contribution-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.project-contribution-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+@media (min-width: 640px) {
+  .project-contribution-item {
+    font-size: 1rem;
+    gap: var(--space-lg);
+  }
+}
+
+.project-contribution-arrow {
+  color: #a78bfa;
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}

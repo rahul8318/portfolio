@@ -165,6 +165,74 @@ function PrepForgeMockup({ isHovered }: { isHovered: boolean }) {
   )
 }
 
+function DDJCMockup({ isHovered }: { isHovered: boolean }) {
+  return (
+    <div
+      className={`ddjc-mockup ${isHovered ? "ddjc-mockup-hovered" : ""}`}
+    >
+      <div className="browser-mockup-header">
+        <div className="browser-mockup-dots">
+          <div className="browser-mockup-dot browser-mockup-dot-red" />
+          <div className="browser-mockup-dot browser-mockup-dot-yellow" />
+          <div className="browser-mockup-dot browser-mockup-dot-green" />
+        </div>
+        <div className="browser-mockup-url">
+          <div className="browser-mockup-url-text">ddjc.org.in</div>
+        </div>
+      </div>
+
+      <div className="browser-mockup-content">
+        <div className="ddjc-layout">
+          <div className="ddjc-topbar">
+            <div className="ddjc-logo">
+              <div className="ddjc-logo-mark">D</div>
+              <div className="ddjc-logo-text">DDJC</div>
+            </div>
+            <div className="ddjc-nav-pill">Justice • Rights • Community</div>
+          </div>
+
+          <div className="ddjc-hero">
+            <div className="ddjc-hero-title">Dignity, Rights &amp; Justice for All</div>
+            <div className="ddjc-hero-text">
+              A platform connecting communities with legal aid, resources, and
+              constitutional rights support.
+            </div>
+          </div>
+
+          <div className="ddjc-modules">
+            <div className="ddjc-module">
+              <span className="ddjc-module-icon">⚖️</span>
+              <span className="ddjc-module-label">Legal</span>
+            </div>
+            <div className="ddjc-module">
+              <span className="ddjc-module-icon">📚</span>
+              <span className="ddjc-module-label">Resources</span>
+            </div>
+            <div className="ddjc-module">
+              <span className="ddjc-module-icon">🤝</span>
+              <span className="ddjc-module-label">Community</span>
+            </div>
+            <div className="ddjc-module">
+              <span className="ddjc-module-icon">🧑‍⚖️</span>
+              <span className="ddjc-module-label">Support</span>
+            </div>
+          </div>
+        </div>
+
+        {isHovered && (
+          <div className="browser-mockup-hover-overlay">
+            <div className="browser-mockup-hover-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+              </svg>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
 function Projects() {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
@@ -199,6 +267,24 @@ function Projects() {
                     {String(project.index).padStart(2, "0")} — {project.subtitle}
                   </span>
                   <h3 className="project-title">{project.title}</h3>
+
+                  {(project.teamProject || project.role) && (
+                    <div className="project-badges">
+                      {project.teamProject && (
+                        <span className="project-badge project-badge-team">
+                          <span className="project-badge-dot" />
+                          Team Project
+                        </span>
+                      )}
+                      {project.role && (
+                        <span className="project-badge project-badge-role">
+                          <span className="project-badge-dot" />
+                          {project.role}
+                        </span>
+                      )}
+                    </div>
+                  )}
+
                   <p className="project-description">{project.description}</p>
 
                   <div className="project-stack">
@@ -236,6 +322,8 @@ function Projects() {
                 <Link to={`/work/${project.slug}`} className="block">
                   {project.id === "prepforge" ? (
                     <PrepForgeMockup isHovered={hoveredProject === project.id} />
+                  ) : project.id === "ddjc" ? (
+                    <DDJCMockup isHovered={hoveredProject === project.id} />
                   ) : (
                     <BrowserMockup
                       project={project}

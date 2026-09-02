@@ -17,6 +17,21 @@ function ProjectPage() {
     window.scrollTo({ top: 0, behavior: "instant" })
   }, [slug])
 
+  useEffect(() => {
+    if (!project) return
+    const roleText = project.role ? ` — ${project.role}` : ""
+    const teamText = project.teamProject ? " (Team Project)" : ""
+    document.title = `${project.title}${roleText}${teamText} | Rahul Kumar`
+
+    let desc = document.querySelector('meta[name="description"]') as HTMLMetaElement | null
+    if (!desc) {
+      desc = document.createElement("meta")
+      desc.name = "description"
+      document.head.appendChild(desc)
+    }
+    desc.content = project.description
+  }, [project])
+
   if (!project) {
     return (
       <div className="project-not-found">
@@ -61,6 +76,24 @@ function ProjectPage() {
           transition={{ duration: 0.8 }}
         >
           <span className="project-subtitle">{project.subtitle}</span>
+
+          {(project.teamProject || project.role) && (
+            <div className="project-team-banner">
+              {project.teamProject && (
+                <span className="project-team-badge project-team-badge-team">
+                  <span className="project-team-badge-dot" />
+                  Team Project
+                </span>
+              )}
+              {project.role && (
+                <span className="project-team-badge project-team-badge-role">
+                  <span className="project-team-badge-dot" />
+                  {project.role}
+                </span>
+              )}
+            </div>
+          )}
+
           <h1
             className="project-title"
             style={{
@@ -81,9 +114,15 @@ function ProjectPage() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           {[
-            { label: "Role", value: "Full Stack Developer" },
+            {
+              label: project.teamProject ? "My Role" : "Role",
+              value: project.role || "Full Stack Developer",
+            },
             { label: "Stack", value: project.stack.join(" • ") },
-            { label: "Year", value: "2025" },
+            {
+              label: "Type",
+              value: project.teamProject ? "Team Project" : "Personal Project",
+            },
             { label: "Status", value: "Live" },
           ].map((item) => (
             <div key={item.label} className="project-meta-card">
@@ -115,6 +154,32 @@ function ProjectPage() {
           <p className="project-section-text">{project.problem}</p>
         </motion.div>
 
+        {/* My Contribution (team projects) */}
+        {project.teamProject && project.contribution && project.contribution.length > 0 && (
+          <motion.div
+            className="project-section"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.45 }}
+          >
+            <h3 className="project-section-title">My Contribution</h3>
+            <div className="project-contribution-list">
+              {project.contribution.map((item, i) => (
+                <motion.div
+                  key={i}
+                  className="project-contribution-item"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.45 + i * 0.04 }}
+                >
+                  <span className="project-contribution-arrow">→</span>
+                  <span>{item}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
         {/* Key Features */}
         <motion.div
           className="project-section"
@@ -122,7 +187,9 @@ function ProjectPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <h3 className="project-section-title">Key Features</h3>
+          <h3 className="project-section-title">
+            {project.teamProject ? "Technical Work" : "Key Features"}
+          </h3>
           <div className="project-features-grid">
             {project.features.map((feature, i) => (
               <motion.div
@@ -188,7 +255,7 @@ function ProjectPage() {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
               </svg>
-              Live Demo
+              {project.teamProject ? "Live Project" : "Live Demo"}
             </a>
           )}
           {project.githubUrl && (

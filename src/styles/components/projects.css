@@ -101,6 +101,57 @@
   color: var(--accent);
 }
 
+/* ============================================
+   PROJECT BADGES (Team Project + Role)
+   ============================================ */
+
+.project-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.project-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .project-badge {
+    font-size: 0.6875rem;
+    padding: var(--space-sm) var(--space-lg);
+  }
+}
+
+.project-badge-team {
+  color: #60a5fa;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  background: rgba(96, 165, 250, 0.08);
+}
+
+.project-badge-role {
+  color: #a78bfa;
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  background: rgba(167, 139, 250, 0.08);
+}
+
+.project-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: currentColor;
+  flex-shrink: 0;
+}
+
 .project-description {
   font-family: var(--font-body);
   font-size: 0.9375rem;
@@ -687,5 +738,231 @@
   .prepforge-progress-value {
     font-size: 0.6875rem;
     width: 2.5rem;
+  }
+}
+
+/* ============================================
+   DDJC MOCKUP
+   ============================================ */
+
+.ddjc-mockup {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-card);
+  transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.ddjc-mockup-hovered {
+  transform: perspective(1000px) rotateY(-5deg) rotateX(3deg) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(168, 85, 247, 0.2), 0 0 0 1px rgba(168, 85, 247, 0.3);
+}
+
+.ddjc-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  height: 100%;
+}
+
+@media (min-width: 640px) {
+  .ddjc-layout {
+    gap: var(--space-lg);
+  }
+}
+
+.ddjc-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(99, 102, 241, 0.05));
+  border: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+@media (min-width: 640px) {
+  .ddjc-topbar {
+    padding: var(--space-lg);
+  }
+}
+
+.ddjc-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+@media (min-width: 640px) {
+  .ddjc-logo {
+    gap: var(--space-md);
+  }
+}
+
+.ddjc-logo-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .ddjc-logo-mark {
+    width: 32px;
+    height: 32px;
+    font-size: 0.875rem;
+  }
+}
+
+.ddjc-logo-text {
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 640px) {
+  .ddjc-logo-text {
+    font-size: 0.75rem;
+  }
+}
+
+.ddjc-nav-pill {
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  background: rgba(168, 85, 247, 0.08);
+  font-family: var(--font-display);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: #c084fc;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .ddjc-nav-pill {
+    font-size: 0.6875rem;
+    padding: var(--space-sm) var(--space-lg);
+  }
+}
+
+.ddjc-hero {
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+@media (min-width: 640px) {
+  .ddjc-hero {
+    padding: var(--space-lg);
+  }
+}
+
+.ddjc-hero-title {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+@media (min-width: 640px) {
+  .ddjc-hero-title {
+    font-size: 1rem;
+    margin-bottom: var(--space-md);
+  }
+}
+
+.ddjc-hero-text {
+  font-size: 0.625rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+@media (min-width: 640px) {
+  .ddjc-hero-text {
+    font-size: 0.6875rem;
+  }
+}
+
+.ddjc-modules {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+}
+
+@media (min-width: 640px) {
+  .ddjc-modules {
+    gap: var(--space-md);
+  }
+}
+
+.ddjc-module {
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-xs);
+  transition: all var(--transition-base);
+  min-height: 56px;
+}
+
+@media (min-width: 640px) {
+  .ddjc-module {
+    padding: var(--space-lg);
+    min-height: 64px;
+  }
+}
+
+.ddjc-module-icon {
+  font-size: 0.875rem;
+  line-height: 1;
+}
+
+@media (min-width: 640px) {
+  .ddjc-module-icon {
+    font-size: 1rem;
+  }
+}
+
+.ddjc-module-label {
+  font-family: var(--font-display);
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+@media (min-width: 640px) {
+  .ddjc-module-label {
+    font-size: 0.625rem;
   }
 }
