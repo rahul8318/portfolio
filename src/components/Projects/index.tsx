@@ -254,84 +254,82 @@ function Projects() {
           {projects.map((project, idx) => (
             <motion.div
               key={project.id}
-              className="project-item"
+              className={`project-item ${idx % 2 === 1 ? "project-item-reverse" : ""}`}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: idx * 0.15, ease: easeOut }}
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
             >
-              <div className={idx % 2 === 1 ? "project-item-reverse" : ""}>
-                <div className="project-info">
-                  <span className="project-index">
-                    {String(project.index).padStart(2, "0")} — {project.subtitle}
-                  </span>
-                  <h3 className="project-title">{project.title}</h3>
+              <div className="project-info">
+                <span className="project-index">
+                  {String(project.index).padStart(2, "0")} — {project.subtitle}
+                </span>
+                <h3 className="project-title">{project.title}</h3>
 
-                  {(project.teamProject || project.role) && (
-                    <div className="project-badges">
-                      {project.teamProject && (
-                        <span className="project-badge project-badge-team">
-                          <span className="project-badge-dot" />
-                          Team Project
-                        </span>
-                      )}
-                      {project.role && (
-                        <span className="project-badge project-badge-role">
-                          <span className="project-badge-dot" />
-                          {project.role}
-                        </span>
-                      )}
-                    </div>
-                  )}
-
-                  <p className="project-description">{project.description}</p>
-
-                  <div className="project-stack">
-                    {project.stack.slice(0, 4).map((tech) => (
-                      <span key={tech} className="project-stack-item">
-                        {tech}
+                {(project.teamProject || project.role) && (
+                  <div className="project-badges">
+                    {project.teamProject && (
+                      <span className="project-badge project-badge-team">
+                        <span className="project-badge-dot" />
+                        Team Project
                       </span>
-                    ))}
-                  </div>
-
-                  <div className="project-actions">
-                    <Link
-                      to={`/work/${project.slug}`}
-                      className="btn btn-primary"
-                    >
-                      <span>View Project</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M7 17L17 7M17 7H7M17 7V17" />
-                      </svg>
-                    </Link>
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-secondary"
-                      >
-                        <span>Live Demo</span>
-                        <ExternalLink size={16} />
-                      </a>
+                    )}
+                    {project.role && (
+                      <span className="project-badge project-badge-role">
+                        <span className="project-badge-dot" />
+                        {project.role}
+                      </span>
                     )}
                   </div>
+                )}
+
+                <p className="project-description">{project.description}</p>
+
+                <div className="project-stack">
+                  {project.stack.slice(0, 4).map((tech) => (
+                    <span key={tech} className="project-stack-item">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
 
-                <Link to={`/work/${project.slug}`} className="block">
-                  {project.id === "prepforge" ? (
-                    <PrepForgeMockup isHovered={hoveredProject === project.id} />
-                  ) : project.id === "ddjc" ? (
-                    <DDJCMockup isHovered={hoveredProject === project.id} />
-                  ) : (
-                    <BrowserMockup
-                      project={project}
-                      isHovered={hoveredProject === project.id}
-                    />
+                <div className="project-actions">
+                  <Link
+                    to={`/work/${project.slug}`}
+                    className="btn btn-primary"
+                  >
+                    <span>View Project</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                  </Link>
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-secondary"
+                    >
+                      <span>Live Demo</span>
+                      <ExternalLink size={16} />
+                    </a>
                   )}
-                </Link>
+                </div>
               </div>
+
+              <Link to={`/work/${project.slug}`} className="project-mockup-link">
+                {project.id === "prepforge" ? (
+                  <PrepForgeMockup isHovered={hoveredProject === project.id} />
+                ) : project.id === "ddjc" ? (
+                  <DDJCMockup isHovered={hoveredProject === project.id} />
+                ) : (
+                  <BrowserMockup
+                    project={project}
+                    isHovered={hoveredProject === project.id}
+                  />
+                )}
+              </Link>
             </motion.div>
           ))}
         </div>
